@@ -6,13 +6,35 @@
  * for you to fill in once you provide the program with the six base stats needed.
  */
 package dndcharactercreator.main;
+
+import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
+
 import dndcharactercreator.classes.*;
 import dndcharactercreator.races.*;
 
-public class Main {
-
+public class Main
+{
 	public static void main(String[] args) 
 	{
+		MainFrame mainFrame = new MainFrame();
+		/* TODO fix icon display.
+		java.net.URL url = ClassLoader.getSystemResource("dndcharactercreator/main/Resources/dndLogo.png");
+		Toolkit kit = Toolkit.getDefaultToolkit();
+		Image img = kit.createImage(url);
+		mainFrame.setIconImage(img);
+		*/
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		mainFrame.setVisible(true);
+		mainFrame.setSize(400, 400);
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.setResizable(false);
+		// Places the frame in the center of the screen.
+		mainFrame.setLocation(dim.width/2-mainFrame.getSize().width/2, dim.height/2-mainFrame.getSize().height/2);
+		
+		// Currently for testing purposes.
 		MountainDwarf dwarf = new MountainDwarf("Rhaegar", 8, 9, 10, 11, 12, 13);
 		System.out.println(dwarf.getName());
 		System.out.println("Strength: " + dwarf.getStrength());
@@ -29,7 +51,5 @@ public class Main {
 			System.out.println(arrayIndex);
 		}
 		System.out.println(dwarf.getSubRacialBonus());
-
 	}
-
 }
