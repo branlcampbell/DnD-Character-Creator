@@ -11,11 +11,14 @@ import javax.swing.JTextField;
 
 public class CenterPanel extends JPanel
 {
-	GridLayout entryGrid = new GridLayout(10,2);
+	private static final long serialVersionUID = -3135316718219106468L;
+	GridLayout entryGrid = new GridLayout(13,2);
 	private String [] race = {"Dwarf", "Hill Dwarf", "Mountain Dwarf", "Elf", "High Elf", "Wood Elf", 
 			"Halfling", "Lightfoot", "Stout", "Human"};
 	private String[] alignment = {"Lawful Good", "Neutral Good", "Chaotic Good", "Neutral Good",
 			"Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil"};
+	private String[] characterClass = {"Cleric", "Fighter", "Rogue", "Wizard"};
+	
 
 	public CenterPanel()
 	{
@@ -33,21 +36,28 @@ public class CenterPanel extends JPanel
 		JLabel alignmentLabel = new JLabel("Alignment");
 		add(alignmentLabel);
 		alignmentLabel.setHorizontalAlignment(JLabel.CENTER);
-		JComboBox alignmentChoice = new JComboBox(alignment);
+		JComboBox<String> alignmentChoice = new JComboBox<String>(alignment);
 		add(alignmentChoice);
 		alignmentChoice.setRenderer(dlcr);
 		
 		JLabel raceLabel = new JLabel("Race");
 		add(raceLabel);
 		raceLabel.setHorizontalAlignment(JLabel.CENTER);
-		JComboBox raceChoice = new JComboBox(race);
+		JComboBox<String> raceChoice = new JComboBox<String>(race);
 		add(raceChoice);
 		raceChoice.setRenderer(dlcr);
+		
+		JLabel classLabel = new JLabel("Class");
+		add(classLabel);
+		classLabel.setHorizontalAlignment(JLabel.CENTER);
+		JComboBox<String> classChoice = new JComboBox<String>(characterClass);
+		add(classChoice);
+		classChoice.setRenderer(dlcr);
 		
 		JLabel strengthLabel = new JLabel("Strength");
 		add(strengthLabel);
 		strengthLabel.setHorizontalAlignment(JLabel.CENTER);
-		JComboBox strengthNum = new JComboBox();
+		JComboBox<Integer> strengthNum = new JComboBox<Integer>();
 		add(strengthNum);
 		populateComboBox(strengthNum);
 		strengthNum.setRenderer(dlcr);
@@ -55,7 +65,7 @@ public class CenterPanel extends JPanel
 		JLabel dexterityLabel = new JLabel("Dexterity");
 		add(dexterityLabel);
 		dexterityLabel.setHorizontalAlignment(JLabel.CENTER);
-		JComboBox dexterityNum = new JComboBox();
+		JComboBox<Integer> dexterityNum = new JComboBox<Integer>();
 		add(dexterityNum);
 		populateComboBox(dexterityNum);
 		dexterityNum.setRenderer(dlcr);
@@ -63,7 +73,7 @@ public class CenterPanel extends JPanel
 		JLabel constitutionLabel = new JLabel("Constitution");
 		add(constitutionLabel);
 		constitutionLabel.setHorizontalAlignment(JLabel.CENTER);
-		JComboBox constitutionNum = new JComboBox();
+		JComboBox<Integer> constitutionNum = new JComboBox<Integer>();
 		add(constitutionNum);
 		populateComboBox(constitutionNum);
 		constitutionNum.setRenderer(dlcr);
@@ -71,7 +81,7 @@ public class CenterPanel extends JPanel
 		JLabel intelligenceLabel = new JLabel("Intelligence");
 		add(intelligenceLabel);
 		intelligenceLabel.setHorizontalAlignment(JLabel.CENTER);
-		JComboBox intelligenceNum = new JComboBox();
+		JComboBox<Integer> intelligenceNum = new JComboBox<Integer>();
 		add(intelligenceNum);
 		populateComboBox(intelligenceNum);
 		intelligenceNum.setRenderer(dlcr);
@@ -79,7 +89,7 @@ public class CenterPanel extends JPanel
 		JLabel wisdomLabel = new JLabel("Wisdom");
 		add(wisdomLabel);
 		wisdomLabel.setHorizontalAlignment(JLabel.CENTER);
-		JComboBox wisdomNum = new JComboBox();
+		JComboBox<Integer> wisdomNum = new JComboBox<Integer>();
 		add(wisdomNum);
 		populateComboBox(wisdomNum);
 		wisdomNum.setRenderer(dlcr);
@@ -87,7 +97,7 @@ public class CenterPanel extends JPanel
 		JLabel charismaLabel = new JLabel("Charisma");
 		add(charismaLabel);
 		charismaLabel.setHorizontalAlignment(JLabel.CENTER);
-		JComboBox charismaNum = new JComboBox();
+		JComboBox<Integer> charismaNum = new JComboBox<Integer>();
 		add(charismaNum);
 		populateComboBox(charismaNum);
 		charismaNum.setRenderer(dlcr);
@@ -99,7 +109,7 @@ public class CenterPanel extends JPanel
 		add(clearButton);
 	}
 	
-	public void populateComboBox(JComboBox comboBox)
+	public void populateComboBox(JComboBox<Integer> comboBox)
 	{
 		for(int i = 1; i < 13; i++)
 		{

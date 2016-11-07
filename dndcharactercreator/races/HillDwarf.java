@@ -8,29 +8,21 @@ package dndcharactercreator.races;
 public class HillDwarf extends Dwarf
 {
 	/** Class variables. */
-	private String racialBonus = "Dwarven Toughness";
+	private String[] racialBonus = {"Dwarven Toughness"};
 	
 	public HillDwarf(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
 	{
-		super(name, strength, dexterity, constitution, intelligence, wisdom, charisma);
+		/** +1 wisdom bonus from racial modifier. */
+		super(name, strength, dexterity, constitution, intelligence, wisdom + 1, charisma);
 	}
 	
 	/**
 	 * Returns the subrace's racial bonus.
 	 * @return racialBonus
 	 */
-	public String getSubRacialBonus()
+	public String[] getSubRacialBonus()
 	{
 		return racialBonus;
-	}
-	
-	/**
-	 * Returns the racially modified wisdom.
-	 * @return wisdom + 1
-	 */
-	public int modifyWisdom()
-	{
-		return getWisdom() + 1;
 	}
 }

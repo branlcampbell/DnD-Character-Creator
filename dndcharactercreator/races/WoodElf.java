@@ -8,29 +8,21 @@ package dndcharactercreator.races;
 public class WoodElf extends Elf
 {
 	/** Class variables. */
-	private String subRacialBonus = "Elf Weapon Training, Fleet of Foot, Mask of the Wild";
+	private String[] subRacialBonus = {"Elf Weapon Training, Fleet of Foot, Mask of the Wild"};
 	
 	public WoodElf(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
 	{
-		super(name, strength, dexterity, constitution, intelligence, wisdom, charisma);
+		/** +1 wisdom bonus from racial modifier. */
+		super(name, strength, dexterity, constitution, intelligence, wisdom + 1, charisma);
 	}
 	
 	/**
 	 * Returns a string stating all subracial bonuses.
 	 * @return subRacialBonus
 	 */
-	public String getSubRacialBonus()
+	public String[] getSubRacialBonus()
 	{
 		return subRacialBonus;
-	}
-	
-	/**
-	 * Returns the subracially modified wisdom.
-	 * @return wisdom + 1
-	 */
-	public int modifyWisdom()
-	{
-		return getWisdom() + 1;
 	}
 }

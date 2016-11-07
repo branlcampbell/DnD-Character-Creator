@@ -9,13 +9,14 @@ public class Halfling extends NoRace
 {
 	private int speed = 25;
 	private String size = "Medium";
-	private String languages = "Common, Halfling";
+	private String[] languages = {"Common", "Halfling"};
 	private String[] racialBonus = {"Lucky", "Brave", "Halfling Nimbleness"};
 	
 	public Halfling(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
 	{
-		super(name, strength, dexterity, constitution, intelligence, wisdom, charisma);
+		/** +2 dexterity bonus from racial modifier. */
+		super(name, strength, dexterity + 2, constitution, intelligence, wisdom, charisma);
 	}
 	
 	/**
@@ -40,7 +41,7 @@ public class Halfling extends NoRace
 	 * Returns naturally known languages.
 	 * @return languages
 	 */
-	public String getLanguages()
+	public String[] getLanguages()
 	{
 		return languages;
 	}
@@ -53,13 +54,4 @@ public class Halfling extends NoRace
 	{
 		return size;
 	}
-	
-	/**
-	 * Returns the racially modified dexterity.
-	 * @return dexterity + 2
-	 */
-	public int modifyDexterity()
-	{
-		return getDexterity() + 2;
-	}	
 }

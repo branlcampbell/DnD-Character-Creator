@@ -47,11 +47,6 @@ public abstract class NoRace
 		this.charisma = charisma;
 	}
 	
-	public void setName(String name)
-	{
-		this.name = name;
-	}
-	
 	/**
 	 * Returns the character's name.
 	 * @return name
@@ -59,11 +54,6 @@ public abstract class NoRace
 	public String getName()
 	{
 		return name;
-	}
-	
-	public void setStrength(int strength)
-	{
-		this.strength = strength;
 	}
 	
 	/**
@@ -74,12 +64,7 @@ public abstract class NoRace
 	{
 		return strength;
 	}
-	
-	public void setDexterity(int dexterity)
-	{
-		this.dexterity = dexterity;
-	}
-	
+
 	/**
 	 * Returns the dexterity value of the character.
 	 * @return dexterity
@@ -87,11 +72,6 @@ public abstract class NoRace
 	public int getDexterity()
 	{
 		return dexterity;
-	}
-	
-	public void setConstitution(int constitution)
-	{
-		this.constitution = constitution;
 	}
 	
 	/**
@@ -103,11 +83,6 @@ public abstract class NoRace
 		return constitution;
 	}
 	
-	public void setIntelligence(int intelligence)
-	{
-		this.intelligence = intelligence;
-	}
-	
 	/**
 	 * Returns the intelligence value of the character.
 	 * @return intelligence
@@ -117,11 +92,6 @@ public abstract class NoRace
 		return intelligence;
 	}
 	
-	public void setWisdom(int wisdom)
-	{
-		this.wisdom = wisdom;
-	}
-	
 	/**
 	 * Returns the wisdom value of the character.
 	 * @return wisdom
@@ -129,11 +99,6 @@ public abstract class NoRace
 	public int getWisdom()
 	{
 		return wisdom;
-	}
-	
-	public void setCharisma(int charisma)
-	{
-		this.charisma = charisma;
 	}
 	
 	/**

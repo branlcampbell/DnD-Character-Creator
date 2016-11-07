@@ -35,21 +35,27 @@ public class Main
 		mainFrame.setLocation(dim.width/2-mainFrame.getSize().width/2, dim.height/2-mainFrame.getSize().height/2);
 		
 		// Currently for testing purposes.
-		MountainDwarf dwarf = new MountainDwarf("Rhaegar", 8, 9, 10, 11, 12, 13);
-		System.out.println(dwarf.getName());
-		System.out.println("Strength: " + dwarf.getStrength());
-		System.out.println("Dexterity: " + dwarf.getDexterity());
-		System.out.println("Constitution: " + dwarf.modifyConstitution());
-		System.out.println("Intelligence: " + dwarf.getIntelligence());
-		System.out.println("Wisdom: " + dwarf.modifyStrength());
-		System.out.println("Charisma: " + dwarf.getCharisma());
-		System.out.println("Racial traits: " + dwarf.getSize());
-		System.out.println("Racial traits: " + dwarf.getSpeed());
-		System.out.println("Racial traits: " + dwarf.getLanguages());
-		for(String arrayIndex : dwarf.getRacialBonus())
+		Human todd = new Human("Todd", 12, 10, 11, 9, 8, 9);
+		System.out.println(todd.getName());
+		System.out.println("Strength: " + todd.getStrength());
+		System.out.println("Dexterity: " + todd.getDexterity());
+		System.out.println("Constitution: " + todd.getConstitution());
+		System.out.println("Intelligence: " + todd.getIntelligence());
+		System.out.println("Wisdom: " + todd.getWisdom());
+		System.out.println("Charisma: " + todd.getCharisma());
+		System.out.println("Size: " + todd.getSize());
+		System.out.println("Speed: " + todd.getSpeed());;
+		for (String arrayIndex : todd.getLanguages())
 		{
 			System.out.println(arrayIndex);
 		}
-		System.out.println(dwarf.getSubRacialBonus());
+		/*
+		 * TODO initiative bonus = dexterity bonus
+		 * TODO perception = 10 + wisdom bonus
+		 * TODO calculate saving throws (class specified. Ability bonus + Attribute Bonus)
+		 * TODO add ability bonuses (8-9 = -1, 10-11 = 0, 12-13 = 1, 14-15 = 2, 16-17 = 3)
+		 * TODO add backgrounds classes
+		 * TODO add formFill methods to auto fill character sheet PDF
+		 */
 	}
 }

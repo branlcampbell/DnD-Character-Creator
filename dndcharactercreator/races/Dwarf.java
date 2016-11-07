@@ -10,16 +10,16 @@ public class Dwarf extends NoRace
 	/** Class variables. */
 	private int speed = 25;
 	private String size = "Medium";
-	private String languages = "Common, Dwarven";
+	private String[] languages = {"Common", "Dwarven"};
 	private String[] racialBonus = {"Speed is unaffected when wearing heavy armor",
 			"Darkvision", "Dwarven Resilience", "Dwarven Combat Training", "Tool Proficiency",
 			"Stonecunning"};
 	
-	/** Dwarf constructor inherits parameters from NoClass. */
 	public Dwarf(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
 	{
-		super(name, strength, dexterity, constitution, intelligence, wisdom, charisma);
+		/** +2 constitution bonus from racial modifier. */
+		super(name, strength, dexterity, constitution + 2, intelligence, wisdom, charisma);
 	}
 	
 	/**
@@ -44,7 +44,7 @@ public class Dwarf extends NoRace
 	 * Returns naturally known languages.
 	 * @return languages
 	 */
-	public String getLanguages()
+	public String[] getLanguages()
 	{
 		return languages;
 	}
@@ -56,14 +56,5 @@ public class Dwarf extends NoRace
 	public String getSize()
 	{
 		return size;
-	}
-	
-	/**
-	 * Returns the racially modified constitution.
-	 * @return constitution + 2
-	 */
-	public int modifyConstitution()
-	{
-		return getConstitution() + 2;
 	}
 }

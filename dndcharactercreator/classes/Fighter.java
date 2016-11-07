@@ -8,13 +8,17 @@ import dndcharactercreator.races.*;
 public class Fighter 
 {
 	/** Class variables. */
-	private String hitDie = "1d10 per Fighter Level";
-	private String armor = "All Armor, Shields";
-	private String weapons = "Simple Weapons, Martial Weapons";
-	private String tools = "None";
-	private String savingThrows = "Strength, Constitution";
-	private String skills = "Pick 2: Acrobatics, Animal Handling, Athletics,"
-			+ " History, Insight, Intimidation, Perception, Survival";
+	private String hitDice = "1d10";
+	private int proficiencyBonus = 2;
+	private String[] savingThrows = {"Strength", "Constitution"};
+	private String[] skills = {"Acrobatics", "Animal Handling", "Athletics", "History", "Insight",
+			"Intimidation", "Perception", "Survival"};
+	private String[] features = {"Fighting Style", "Second Wind"};
+	private String[] proficiencies = {"All Armor", "Shields", "Simple Weapons", "Martial Weapons"};
+	private String[] firstEquipmentChoice = {"Chain Mail", "Leather, Longbow, and 20 Arrows"};
+	private String[] secondEquipmentChoice = {"Martial Weapon and a Shield", "Two Martial Weapons"};
+	private String[] thirdEquipmentChoice = {"Light Crossbow and 20 Bolts", "Two Handaxes"};
+	private String[] fourthEquipmentChoice = {"Dungeoneer's Pack", "Explorer's Pack"};
 	
 	/** Allows for constitution to be retrieved. */
 	NoRace character;
@@ -25,12 +29,12 @@ public class Fighter
 	}
 	
 	/**
-	 * Returns the hit die amount.
-	 * @return hitDie
+	 * Returns the hit dice amount.
+	 * @return hitDice
 	 */
-	public String getHitDie()
+	public String getHitDice()
 	{
-		return hitDie;
+		return hitDice;
 	}
 	
 	/**
@@ -43,37 +47,19 @@ public class Fighter
 	}
 	
 	/**
-	 * Returns the armor types the class is proficient with.
-	 * @return armor
+	 * Returns the proficiency bonus of the class.
+	 * @return proficiencyBonus
 	 */
-	public String getArmor() 
+	public int getProficiencyBonus()
 	{
-		return armor;
-	}
-
-	/**
-	 * Returns the weapons the class can is proficient with.
-	 * @return weapons
-	 */
-	public String getWeapons() 
-	{
-		return weapons;
-	}
-
-	/**
-	 * Returns the tools the class is proficient with.
-	 * @return tools
-	 */
-	public String getTools() 
-	{
-		return tools;
+		return proficiencyBonus;
 	}
 
 	/**
 	 * Returns the types of saving throws that can be made by the class.
 	 * @return savingThrows
 	 */
-	public String getSavingThrows() 
+	public String[] getSavingThrows() 
 	{
 		return savingThrows;
 	}
@@ -82,7 +68,61 @@ public class Fighter
 	 * Returns the skills the class can choose from.
 	 * @return skills
 	 */
-	public String getSkills() {
+	public String[] getSkills() {
 		return skills;
+	}
+	
+	/**
+	 * Returns features of class.
+	 * @return features
+	 */
+	public String[] getFeatures()
+	{
+		return features;
+	}
+	
+	/**
+	 * Returns proficiencies of class.
+	 * @return proficiencies
+	 */
+	public String[] getProficiencies()
+	{
+		return proficiencies;
+	}
+	
+	/**
+	 * Returns first equipment choice the class has.
+	 * @return firstEquipmentChoice
+	 */
+	public String[] getFirstEquipmentChoice()
+	{
+		return firstEquipmentChoice;
+	}
+	
+	/**
+	 * Returns second equipment choice the class has.
+	 * @return secondEquipmentChoice
+	 */
+	public String[] getSecondEquipmentChoice()
+	{
+		return secondEquipmentChoice;
+	}
+	
+	/**
+	 * Returns third equipment choice the class has.
+	 * @return thirdEquipmentChoice
+	 */
+	public String[] getThirdEquipmentChoice()
+	{
+		return thirdEquipmentChoice;
+	}
+	
+	/**
+	 * Returns fourth equipment choice the class has.
+	 * @return fourthEquipmentChoice
+	 */
+	public String[] getFourthEquipmentChoice()
+	{
+		return fourthEquipmentChoice;
 	}
 }
