@@ -28,7 +28,7 @@ public class Main
 		*/
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		mainFrame.setVisible(true);
-		mainFrame.setSize(400, 400);
+		mainFrame.setSize(1400, 400);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setResizable(false);
 		// Places the frame in the center of the screen.
@@ -54,7 +54,6 @@ public class Main
 		 * TODO perception = 10 + wisdom bonus
 		 * TODO calculate saving throws (class specified. Ability bonus + Attribute Bonus)
 		 * TODO add ability bonuses (8-9 = -1, 10-11 = 0, 12-13 = 1, 14-15 = 2, 16-17 = 3)
-		 * TODO add backgrounds classes
 		 * TODO add formFill methods to auto fill character sheet PDF
 		 */
 	}

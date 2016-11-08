@@ -1,7 +1,6 @@
 package dndcharactercreator.main;
 
 import java.awt.GridLayout;
-
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -12,12 +11,14 @@ import javax.swing.JTextField;
 public class CenterPanel extends JPanel
 {
 	private static final long serialVersionUID = -3135316718219106468L;
-	GridLayout entryGrid = new GridLayout(13,2);
-	private String [] race = {"Dwarf", "Hill Dwarf", "Mountain Dwarf", "Elf", "High Elf", "Wood Elf", 
-			"Halfling", "Lightfoot", "Stout", "Human"};
+	GridLayout entryGrid = new GridLayout(12,2);
+	private String [] race = {"Dragonborn", "Dwarf", "Hill Dwarf", "Mountain Dwarf", "Elf", "High Elf",
+			"Wood Elf", "Dark Elf", "Gnome", "Forest Gnome", "RockGnome", "Halfling", "Half Elf",
+			"Half Orc", "Lightfoot", "Stout", "Human", "Tiefling"};
 	private String[] alignment = {"Lawful Good", "Neutral Good", "Chaotic Good", "Neutral Good",
 			"Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil"};
-	private String[] characterClass = {"Cleric", "Fighter", "Rogue", "Wizard"};
+	private String[] characterClass = {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
+			"Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
 	
 
 	public CenterPanel()
@@ -38,6 +39,7 @@ public class CenterPanel extends JPanel
 		alignmentLabel.setHorizontalAlignment(JLabel.CENTER);
 		JComboBox<String> alignmentChoice = new JComboBox<String>(alignment);
 		add(alignmentChoice);
+		alignmentChoice.setSelectedIndex(-1);
 		alignmentChoice.setRenderer(dlcr);
 		
 		JLabel raceLabel = new JLabel("Race");
@@ -45,6 +47,7 @@ public class CenterPanel extends JPanel
 		raceLabel.setHorizontalAlignment(JLabel.CENTER);
 		JComboBox<String> raceChoice = new JComboBox<String>(race);
 		add(raceChoice);
+		raceChoice.setSelectedIndex(-1);
 		raceChoice.setRenderer(dlcr);
 		
 		JLabel classLabel = new JLabel("Class");
@@ -52,6 +55,7 @@ public class CenterPanel extends JPanel
 		classLabel.setHorizontalAlignment(JLabel.CENTER);
 		JComboBox<String> classChoice = new JComboBox<String>(characterClass);
 		add(classChoice);
+		classChoice.setSelectedIndex(-1);
 		classChoice.setRenderer(dlcr);
 		
 		JLabel strengthLabel = new JLabel("Strength");
@@ -61,6 +65,7 @@ public class CenterPanel extends JPanel
 		add(strengthNum);
 		populateComboBox(strengthNum);
 		strengthNum.setRenderer(dlcr);
+		strengthNum.setSelectedIndex(-1);
 		
 		JLabel dexterityLabel = new JLabel("Dexterity");
 		add(dexterityLabel);
@@ -69,6 +74,7 @@ public class CenterPanel extends JPanel
 		add(dexterityNum);
 		populateComboBox(dexterityNum);
 		dexterityNum.setRenderer(dlcr);
+		dexterityNum.setSelectedIndex(-1);
 		
 		JLabel constitutionLabel = new JLabel("Constitution");
 		add(constitutionLabel);
@@ -77,6 +83,7 @@ public class CenterPanel extends JPanel
 		add(constitutionNum);
 		populateComboBox(constitutionNum);
 		constitutionNum.setRenderer(dlcr);
+		constitutionNum.setSelectedIndex(-1);
 		
 		JLabel intelligenceLabel = new JLabel("Intelligence");
 		add(intelligenceLabel);
@@ -85,6 +92,7 @@ public class CenterPanel extends JPanel
 		add(intelligenceNum);
 		populateComboBox(intelligenceNum);
 		intelligenceNum.setRenderer(dlcr);
+		intelligenceNum.setSelectedIndex(-1);
 		
 		JLabel wisdomLabel = new JLabel("Wisdom");
 		add(wisdomLabel);
@@ -93,6 +101,7 @@ public class CenterPanel extends JPanel
 		add(wisdomNum);
 		populateComboBox(wisdomNum);
 		wisdomNum.setRenderer(dlcr);
+		wisdomNum.setSelectedIndex(-1);
 		
 		JLabel charismaLabel = new JLabel("Charisma");
 		add(charismaLabel);
@@ -101,6 +110,7 @@ public class CenterPanel extends JPanel
 		add(charismaNum);
 		populateComboBox(charismaNum);
 		charismaNum.setRenderer(dlcr);
+		charismaNum.setSelectedIndex(-1);
 		
 		JButton submitButton = new JButton("Generate Character");
 		add(submitButton);
@@ -111,7 +121,7 @@ public class CenterPanel extends JPanel
 	
 	public void populateComboBox(JComboBox<Integer> comboBox)
 	{
-		for(int i = 1; i < 13; i++)
+		for(int i = 8; i < 13; i++)
 		{
 			comboBox.addItem(i);
 		}
