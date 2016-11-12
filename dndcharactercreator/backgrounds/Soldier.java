@@ -1,6 +1,6 @@
 package dndcharactercreator.backgrounds;
 
-public class Soldier 
+public class Soldier implements Background
 {
 	private String[] skillProficiencies = {"Athletics", "Intimidation"};
 	private String[] toolProficiencies = {"One Type of Gaming Set", "Vehicles (Land)"};

@@ -1,6 +1,6 @@
 package dndcharactercreator.backgrounds;
 
-public class Noble 
+public class Noble implements Background
 {
 	private String[] skillProficiencies = {"History", "Persuasion"};
 	private String[] toolProficiencies = {"One Type of Gaming Set"};

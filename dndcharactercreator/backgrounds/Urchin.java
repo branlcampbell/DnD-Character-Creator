@@ -1,6 +1,6 @@
 package dndcharactercreator.backgrounds;
 
-public class Urchin 
+public class Urchin implements Background
 {
 	private String[] skillProficiencies = {"Sleight of Hand", "Stealth"};
 	private String[] toolProficiencies = {"Disguise Kit", "Thieves' Tools"};

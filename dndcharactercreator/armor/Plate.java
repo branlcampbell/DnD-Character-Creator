@@ -2,10 +2,10 @@ package dndcharactercreator.armor;
 
 public class Plate implements Wearable
 {
-	int armorClass = 18;
-	int strengthRequirement = 15;
-	String stealth = "Disadvantage";
-	int weight = 65;
+	private int armorClass = 18;
+	private int strengthRequirement = 15;
+	private String stealth = "Disadvantage";
+	private int weight = 65;
 	
 	Plate()
 	{

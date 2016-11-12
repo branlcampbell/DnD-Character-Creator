@@ -1,6 +1,6 @@
 package dndcharactercreator.backgrounds;
 
-public class Sailor 
+public class Sailor implements Background
 {
 	private String[] skillProficiencies = {"Athletics", "Perception"};
 	private String[] toolProficiencies = {"Navigator's Tools", "Vehicles (Water)"};

@@ -5,7 +5,7 @@
 package dndcharactercreator.classes;
 import dndcharactercreator.races.*;
 
-public class Bard 
+public class Bard implements Class
 {
 	/** Class variables. */
 	private String hitDice = "1d8";

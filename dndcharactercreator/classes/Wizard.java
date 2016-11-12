@@ -5,12 +5,12 @@
 package dndcharactercreator.classes;
 import dndcharactercreator.races.*;
 
-public class Wizard 
+public class Wizard implements Class
 {
 	/** Class variables. */
 	private String hitDice = "1d6";
 	private int proficiencyBonus = 2;
-	private String savingThrows = "Intelligence, Wisdom";
+	private String[] savingThrows = {"Intelligence", "Wisdom"};
 	private String[] skills = {"Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"};
 	private String[] features = {"Spellcasting", "Arcane Recovery"};
 	private String[] proficiencies = {"Daggers", "Darts", "Slings", "Quarterstaffs", "Light Crossbows"};
@@ -49,7 +49,7 @@ public class Wizard
 	 * Returns the proficiency bonus of the class.
 	 * @return proficiencyBonus
 	 */
-	public int proficiencyBonus()
+	public int getProficiencyBonus()
 	{
 		return proficiencyBonus;
 	}
@@ -58,7 +58,7 @@ public class Wizard
 	 * Returns the types of saving throws that can be made by the class.
 	 * @return savingThrows
 	 */
-	public String getSavingThrows() 
+	public String[] getSavingThrows() 
 	{
 		return savingThrows;
 	}

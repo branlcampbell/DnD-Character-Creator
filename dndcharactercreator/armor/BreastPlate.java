@@ -2,12 +2,12 @@ package dndcharactercreator.armor;
 
 public class BreastPlate implements Wearable
 {
-	int armorClass = 14;
-	int strengthRequirement = 0;
-	String stealth = null;
-	int weight = 20;
+	private int armorClass = 14;
+	private int strengthRequirement = 0;
+	private String stealth = null;
+	private int weight = 20;
 	
-	BreastPlate()
+	public BreastPlate()
 	{
 		
 	}

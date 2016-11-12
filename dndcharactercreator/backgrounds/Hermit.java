@@ -1,6 +1,6 @@
 package dndcharactercreator.backgrounds;
 
-public class Hermit 
+public class Hermit implements Background
 {
 	private String[] skillProficiencies = {"Medicine", "Religion"};
 	private String[] toolProficiencies = {"Herbalism Kit"};

@@ -2,10 +2,10 @@ package dndcharactercreator.armor;
 
 public class ChainMail implements Wearable
 {
-	int armorClass = 16;
-	int strengthRequirement = 13;
-	String stealth = "Disadvantage";
-	int weight = 55;
+	private int armorClass = 16;
+	private int strengthRequirement = 13;
+	private String stealth = "Disadvantage";
+	private int weight = 55;
 	
 	ChainMail()
 	{

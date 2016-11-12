@@ -2,10 +2,10 @@ package dndcharactercreator.armor;
 
 public class Padded implements Wearable
 {
-	int armorClass = 11;
-	int strengthRequirement = 0;
-	String stealth = "Disadvantage";
-	int weight = 8;
+	private int armorClass = 11;
+	private int strengthRequirement = 0;
+	private String stealth = "Disadvantage";
+	private int weight = 8;
 	
 	Padded()
 	{

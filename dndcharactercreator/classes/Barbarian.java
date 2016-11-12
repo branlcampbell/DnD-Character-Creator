@@ -5,7 +5,7 @@
 package dndcharactercreator.classes;
 import dndcharactercreator.races.*;
 
-public class Barbarian 
+public class Barbarian implements Class
 {
 	/** Class variables. */
 	private String hitDice = "1d12";

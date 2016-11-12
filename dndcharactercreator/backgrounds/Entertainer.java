@@ -1,6 +1,6 @@
 package dndcharactercreator.backgrounds;
 
-public class Entertainer 
+public class Entertainer implements Background
 {
 	private String[] skillProficiencies = {"Acrobatics", "Performance"};
 	private String[] toolProficiencies = {"Diguise Kit", "One Type of Musical Instrument"};

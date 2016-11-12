@@ -5,7 +5,7 @@
 package dndcharactercreator.classes;
 import dndcharactercreator.races.*;
 
-public class Druid 
+public class Druid implements Class
 {
 	/** Class variables. */
 	private String hitDice = "1d8";

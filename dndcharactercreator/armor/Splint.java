@@ -2,10 +2,10 @@ package dndcharactercreator.armor;
 
 public class Splint implements Wearable
 {
-	int armorClass = 17;
-	int strengthRequirement = 15;
-	String stealth = "Disadvantage";
-	int weight = 60;
+	private int armorClass = 17;
+	private int strengthRequirement = 15;
+	private String stealth = "Disadvantage";
+	private int weight = 60;
 	
 	Splint()
 	{

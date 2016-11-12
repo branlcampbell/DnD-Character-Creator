@@ -5,12 +5,12 @@
 package dndcharactercreator.classes;
 import dndcharactercreator.races.*;
 
-public class Cleric 
+public class Cleric implements Class
 {
 	/** Class variables. */
 	private String hitDice = "1d8";
 	private int proficiencyBonus = 2;
-	private String savingThrows = "Wisdom, Charisma";
+	private String[] savingThrows = {"Wisdom", "Charisma"};
 	private String[] skills = {"History", "Insight", "Medicine", "Persuasion", "Religion"};
 	private String[] features = {"Spellcasting", "Divine Domain"};
 	private String[] proficiencies = {"Light Armor", "Medium Armor", "Shields", "All Simple Weapons"};
@@ -50,7 +50,7 @@ public class Cleric
 	 * Returns the proficiency bonus of the class.
 	 * @return proficiencyBonus
 	 */
-	public int proficiencyBonus()
+	public int getProficiencyBonus()
 	{
 		return proficiencyBonus;
 	}
@@ -59,7 +59,7 @@ public class Cleric
 	 * Returns the types of saving throws that can be made by the class.
 	 * @return savingThrows
 	 */
-	public String getSavingThrows() 
+	public String[] getSavingThrows() 
 	{
 		return savingThrows;
 	}

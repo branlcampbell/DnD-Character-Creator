@@ -1,6 +1,6 @@
 package dndcharactercreator.backgrounds;
 
-public class FolkHero 
+public class FolkHero implements Background
 {
 	private String[] skillProficiencies = {"Animal Handling", "Survival"};
 	private String[] toolProficiencies = {"One Type of Artisan's Tools", "Vehicles (Land)"};

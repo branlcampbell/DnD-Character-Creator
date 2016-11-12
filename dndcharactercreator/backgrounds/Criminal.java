@@ -1,6 +1,6 @@
 package dndcharactercreator.backgrounds;
 
-public class Criminal 
+public class Criminal implements Background
 {
 	private String[] skillProficiencies = {"Deception", "Stealth"};
 	private String[] toolProficiencies = {"One type of gaming set", "Thieves' tools"};

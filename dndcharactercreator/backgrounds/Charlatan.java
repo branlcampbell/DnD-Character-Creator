@@ -1,6 +1,6 @@
 package dndcharactercreator.backgrounds;
 
-public class Charlatan 
+public class Charlatan implements Background
 {
 	private String[] skillProficiencies = {"Deception", "Sleight of Hand"};
 	private String[] toolProficiencies = {"Disguise Kit", "Forgery Kit"};

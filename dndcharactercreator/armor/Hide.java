@@ -2,10 +2,10 @@ package dndcharactercreator.armor;
 
 public class Hide implements Wearable
 {
-	int armorClass = 12;
-	int strengthRequirement = 0;
-	String stealth = null;
-	int weight = 12;
+	private int armorClass = 12;
+	private int strengthRequirement = 0;
+	private String stealth = null;
+	private int weight = 12;
 	
 	Hide()
 	{
@@ -31,5 +31,4 @@ public class Hide implements Wearable
 	{
 		return this.weight;
 	}
-
 }

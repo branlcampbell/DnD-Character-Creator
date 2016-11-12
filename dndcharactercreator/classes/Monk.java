@@ -5,12 +5,12 @@
 package dndcharactercreator.classes;
 import dndcharactercreator.races.*;
 
-public class Monk 
+public class Monk implements Class
 {
 	/** Class variables. */
 	private String hitDice = "1d8";
 	private int proficiencyBonus = 2;
-	private String savingThrows = "Strength, Dexterity";
+	private String[] savingThrows = {"Strength", "Dexterity"};
 	private String[] skills = {"Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"};
 	private String[] features = {"Unarmored Defense", "Martial Arts"};
 	private String[] proficiencies = {"Simple Weapons", "Shortswords", "One Type of Artisan's Tool or "
@@ -49,7 +49,7 @@ public class Monk
 	 * Returns the proficiency bonus of the class.
 	 * @return proficiencyBonus
 	 */
-	public int proficiencyBonus()
+	public int getProficiencyBonus()
 	{
 		return proficiencyBonus;
 	}
@@ -58,7 +58,7 @@ public class Monk
 	 * Returns the types of saving throws that can be made by the class.
 	 * @return savingThrows
 	 */
-	public String getSavingThrows() 
+	public String[] getSavingThrows() 
 	{
 		return savingThrows;
 	}

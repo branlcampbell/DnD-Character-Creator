@@ -2,10 +2,10 @@ package dndcharactercreator.armor;
 
 public class Leather implements Wearable
 {
-	int armorClass = 11;
-	int strengthRequirement = 0;
-	String stealth = null;
-	int weight = 10;
+	private int armorClass = 11;
+	private int strengthRequirement = 0;
+	private String stealth = null;
+	private int weight = 10;
 	
 	Leather()
 	{
@@ -31,5 +31,4 @@ public class Leather implements Wearable
 	{
 		return this.weight;
 	}
-
 }

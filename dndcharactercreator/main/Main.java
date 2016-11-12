@@ -12,6 +12,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 
+import dndcharactercreator.armor.*;
 import dndcharactercreator.classes.*;
 import dndcharactercreator.races.*;
 
@@ -49,6 +50,8 @@ public class Main
 		{
 			System.out.println(arrayIndex);
 		}
+		BreastPlate breastPlate = new BreastPlate();
+		System.out.println(breastPlate.getArmorClass());
 		/*
 		 * TODO initiative bonus = dexterity bonus
 		 * TODO perception = 10 + wisdom bonus

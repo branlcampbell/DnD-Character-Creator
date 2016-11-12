@@ -5,12 +5,12 @@
 package dndcharactercreator.classes;
 import dndcharactercreator.races.*;
 
-public class Rogue 
+public class Rogue implements Class
 {
 	/** Class variables. */
 	private String hitDice = "1d8";
 	private int proficiencyBonus = 2;
-	private String savingThrows = "Dexterity, Intelligence";
+	private String[] savingThrows = {"Dexterity", "Intelligence"};
 	private String[] skills = {"Acrobatics", "Athletics", "Deception", "Insight", "Intimidation",
 			"Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"};
 	private String[] features = {"Expertise", "Sneak Attack", "Thieves' Cant"};
@@ -51,7 +51,7 @@ public class Rogue
 	 * Returns the proficiency bonus of the class.
 	 * @return proficiencyBonus
 	 */
-	public int proficiencyBonus()
+	public int getProficiencyBonus()
 	{
 		return proficiencyBonus;
 	}
@@ -60,7 +60,7 @@ public class Rogue
 	 * Returns the types of saving throws that can be made by the class.
 	 * @return savingThrows
 	 */
-	public String getSavingThrows() 
+	public String[] getSavingThrows() 
 	{
 		return savingThrows;
 	}

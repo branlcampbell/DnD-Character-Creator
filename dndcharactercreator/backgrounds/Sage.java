@@ -1,6 +1,6 @@
 package dndcharactercreator.backgrounds;
 
-public class Sage 
+public class Sage implements Background
 {
 	private String[] skillProficiencies = {"Arcana", "History"};
 	private String[] languages = {"Two of Your Choice"};

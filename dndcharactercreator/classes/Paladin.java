@@ -5,12 +5,12 @@
 package dndcharactercreator.classes;
 import dndcharactercreator.races.*;
 
-public class Paladin 
+public class Paladin implements Class
 {
 	/** Class variables. */
 	private String hitDice = "1d10";
 	private int proficiencyBonus = 2;
-	private String savingThrows = "Wisdom, Charisma";
+	private String[] savingThrows = {"Wisdom", "Charisma"};
 	private String[] skills = {"Athletics", "Insight", "Intimidation", "Medicine", "Persuasion", "Religion"};
 	private String[] features = {"Divine Sense", "Lay on Hands"};
 	private String[] proficiencies = {"All Armor", "Shields", "Simple Weapons", "Martial Weapons"};
@@ -49,7 +49,7 @@ public class Paladin
 	 * Returns the proficiency bonus of the class.
 	 * @return proficiencyBonus
 	 */
-	public int proficiencyBonus()
+	public int getProficiencyBonus()
 	{
 		return proficiencyBonus;
 	}
@@ -58,7 +58,7 @@ public class Paladin
 	 * Returns the types of saving throws that can be made by the class.
 	 * @return savingThrows
 	 */
-	public String getSavingThrows() 
+	public String[] getSavingThrows() 
 	{
 		return savingThrows;
 	}

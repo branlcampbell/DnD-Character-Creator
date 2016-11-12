@@ -5,12 +5,12 @@
 package dndcharactercreator.classes;
 import dndcharactercreator.races.*;
 
-public class Ranger 
+public class Ranger implements Class
 {
 	/** Class variables. */
 	private String hitDice = "1d10";
 	private int proficiencyBonus = 2;
-	private String savingThrows = "Strength, Dexterity";
+	private String[] savingThrows = {"Strength", "Dexterity"};
 	private String[] skills = {"Animal Handling", "Athletics", "Insight", "Investigation",
 			"Nature", "Perception", "Stealth", "Survival"};
 	private String[] features = {"Favored Enemy", "Natural Explorer"};
@@ -51,7 +51,7 @@ public class Ranger
 	 * Returns the proficiency bonus of the class.
 	 * @return proficiencyBonus
 	 */
-	public int proficiencyBonus()
+	public int getProficiencyBonus()
 	{
 		return proficiencyBonus;
 	}
@@ -60,7 +60,7 @@ public class Ranger
 	 * Returns the types of saving throws that can be made by the class.
 	 * @return savingThrows
 	 */
-	public String getSavingThrows() 
+	public String[] getSavingThrows() 
 	{
 		return savingThrows;
 	}

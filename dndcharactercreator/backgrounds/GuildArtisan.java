@@ -1,6 +1,6 @@
 package dndcharactercreator.backgrounds;
 
-public class GuildArtisan 
+public class GuildArtisan implements Background
 {
 	private String[] skillProficiencies = {"Insight", "Persuasion"};
 	private String[] toolProficiencies = {"One Type of Artisan's Tools"};

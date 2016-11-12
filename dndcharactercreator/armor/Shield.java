@@ -1,13 +1,13 @@
 package dndcharactercreator.armor;
 
-public class ChainShirt implements Wearable
+public class Shield implements Wearable
 {
-	private int armorClass = 13;
+	private int armorClass = 2;
 	private int strengthRequirement = 0;
 	private String stealth = null;
-	private int weight = 20;
+	private int weight = 6;
 	
-	ChainShirt()
+	Shield()
 	{
 		
 	}

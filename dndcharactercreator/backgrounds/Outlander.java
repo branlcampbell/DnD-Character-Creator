@@ -1,6 +1,6 @@
 package dndcharactercreator.backgrounds;
 
-public class Outlander 
+public class Outlander implements Background
 {
 	private String[] skillProficiencies = {"Athletics", "Survival"};
 	private String[] toolProficiencies = {"One Type of Musical Instrument"};

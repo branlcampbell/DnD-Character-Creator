@@ -2,10 +2,10 @@ package dndcharactercreator.armor;
 
 public class HalfPlate implements Wearable
 {
-	int armorClass = 15;
-	int strengthRequirement = 0;
-	String stealth = "Disadvantage";
-	int weight = 40;
+	private int armorClass = 15;
+	private int strengthRequirement = 0;
+	private String stealth = "Disadvantage";
+	private int weight = 40;
 	
 	HalfPlate()
 	{

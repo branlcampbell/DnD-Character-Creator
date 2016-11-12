@@ -1,6 +1,6 @@
 package dndcharactercreator.backgrounds;
 
-public class Acolyte 
+public class Acolyte implements Background
 {
 	private String[] skillProficiencies = {"Insight", "Religion"};
 	private String[] languages = {"Two of Your Choice"};
