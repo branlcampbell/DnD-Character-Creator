@@ -1,6 +1,9 @@
 package dndcharactercreator.main;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -11,14 +14,17 @@ import javax.swing.JTextField;
 public class CenterPanel extends JPanel
 {
 	private static final long serialVersionUID = -3135316718219106468L;
-	GridLayout entryGrid = new GridLayout(12,2);
+	GridLayout entryGrid = new GridLayout(15,2);
 	private String [] race = {"Dragonborn", "Dwarf", "Hill Dwarf", "Mountain Dwarf", "Elf", "High Elf",
-			"Wood Elf", "Dark Elf", "Gnome", "Forest Gnome", "RockGnome", "Halfling", "Half Elf",
+			"Wood Elf", "Dark Elf", "Gnome", "Forest Gnome", "Rock Gnome", "Halfling", "Half Elf",
 			"Half Orc", "Lightfoot", "Stout", "Human", "Tiefling"};
 	private String[] alignment = {"Lawful Good", "Neutral Good", "Chaotic Good", "Neutral Good",
 			"Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil"};
 	private String[] characterClass = {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
 			"Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
+	private String[] backgrounds = {"Acolyte", "Charlatan", "Criminal", "Entertainer",
+			"Folk Hero", "Guild Artisan", "Hermit", "Noble", "Outlander", "Sage",
+			"Sailor", "Solider", "Urchin"};
 	
 
 	public CenterPanel()
@@ -33,6 +39,13 @@ public class CenterPanel extends JPanel
 		characterName.setHorizontalAlignment(JLabel.CENTER);
 		JTextField characterEntry = new JTextField();
 		add(characterEntry);
+		
+		setLayout(entryGrid);
+		JLabel playerName = new JLabel("Player Name");
+		add(playerName);
+		playerName.setHorizontalAlignment(JLabel.CENTER);
+		JTextField playerEntry = new JTextField();
+		add(playerEntry);
 		
 		JLabel alignmentLabel = new JLabel("Alignment");
 		add(alignmentLabel);
@@ -57,6 +70,14 @@ public class CenterPanel extends JPanel
 		add(classChoice);
 		classChoice.setSelectedIndex(-1);
 		classChoice.setRenderer(dlcr);
+		
+		JLabel backgroundLabel = new JLabel("Background");
+		add(backgroundLabel);
+		backgroundLabel.setHorizontalAlignment(JLabel.CENTER);
+		JComboBox<String> backgroundChoice = new JComboBox<String>(backgrounds);
+		add(backgroundChoice);
+		backgroundChoice.setSelectedIndex(-1);
+		backgroundChoice.setRenderer(dlcr);
 		
 		JLabel strengthLabel = new JLabel("Strength");
 		add(strengthLabel);
@@ -112,11 +133,77 @@ public class CenterPanel extends JPanel
 		charismaNum.setRenderer(dlcr);
 		charismaNum.setSelectedIndex(-1);
 		
+		JButton personalityButton = new JButton("Personality");
+		add(personalityButton);
+		personalityButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				
+			}
+		});
+		
+		
+		JButton idealsButton = new JButton("Ideals");
+		add(idealsButton);
+		idealsButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				
+			}
+		});
+		
+		JButton bondsButton = new JButton("Bonds");
+		add(bondsButton);
+		bondsButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				
+			}
+		});
+		
+		JButton flawsButton = new JButton("Flaws");
+		add(flawsButton);
+		flawsButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				
+			}
+		});
+		
 		JButton submitButton = new JButton("Generate Character");
 		add(submitButton);
+		submitButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				
+			}
+		});
 		
 		JButton clearButton = new JButton("Clear Fields");
 		add(clearButton);
+		clearButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				characterEntry.setText("");
+				playerEntry.setText("");
+				alignmentChoice.setSelectedIndex(-1);
+				raceChoice.setSelectedIndex(-1);
+				classChoice.setSelectedIndex(-1);
+				backgroundChoice.setSelectedIndex(-1);
+				strengthNum.setSelectedIndex(-1);
+				dexterityNum.setSelectedIndex(-1);
+				constitutionNum.setSelectedIndex(-1);
+				intelligenceNum.setSelectedIndex(-1);
+				wisdomNum.setSelectedIndex(-1);
+				charismaNum.setSelectedIndex(-1);
+			}
+		});
 	}
 	
 	public void populateComboBox(JComboBox<Integer> comboBox)

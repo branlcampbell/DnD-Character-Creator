@@ -7,9 +7,12 @@
  */
 package dndcharactercreator.main;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import dndcharactercreator.armor.*;
@@ -21,15 +24,12 @@ public class Main
 	public static void main(String[] args) 
 	{
 		MainFrame mainFrame = new MainFrame();
-		/* TODO fix icon display.
-		java.net.URL url = ClassLoader.getSystemResource("dndcharactercreator/main/Resources/dndLogo.png");
-		Toolkit kit = Toolkit.getDefaultToolkit();
-		Image img = kit.createImage(url);
-		mainFrame.setIconImage(img);
-		*/
+		ImageIcon img = new ImageIcon("C:/Users/Branl/workspace/DnD Character Creator/src/dndcharactercreator/assets/dndLogo.png");
+		mainFrame.setIconImage(img.getImage());
+		
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		mainFrame.setVisible(true);
-		mainFrame.setSize(1400, 400);
+		mainFrame.setSize(500, 500);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setResizable(false);
 		// Places the frame in the center of the screen.
@@ -52,6 +52,7 @@ public class Main
 		}
 		BreastPlate breastPlate = new BreastPlate();
 		System.out.println(breastPlate.getArmorClass());
+		
 		/*
 		 * TODO initiative bonus = dexterity bonus
 		 * TODO perception = 10 + wisdom bonus
