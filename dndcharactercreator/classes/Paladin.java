@@ -42,7 +42,7 @@ public class Paladin implements Class
 	 */
 	public int getHitPoints()
 	{
-		return 6 + character.getConstitution();
+		return 10 + character.getConstitution();
 	}
 	
 	/**

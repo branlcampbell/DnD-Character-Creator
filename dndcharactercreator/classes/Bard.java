@@ -45,7 +45,7 @@ public class Bard implements Class
 	 */
 	public int getHitPoints()
 	{
-		return 5 + character.getConstitution();
+		return 8 + character.getConstitution();
 	}
 	
 	/**

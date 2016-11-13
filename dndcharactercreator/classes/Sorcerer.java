@@ -42,7 +42,7 @@ public class Sorcerer implements Class
 	 */
 	public int getHitPoints()
 	{
-		return 4 + character.getConstitution();
+		return 6 + character.getConstitution();
 	}
 	
 	/**

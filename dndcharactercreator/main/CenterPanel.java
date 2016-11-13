@@ -3,6 +3,8 @@ package dndcharactercreator.main;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -16,25 +18,7 @@ import dndcharactercreator.classes.*;
 import dndcharactercreator.backgrounds.*;
 
 public class CenterPanel extends JPanel
-{
-	/**
-	 * Object creation for each individual background in order to get attributes.
-	 */
-	Acolyte acolyte = new Acolyte();
-	Charlatan charlatan = new Charlatan();
-	Criminal criminal = new Criminal();
-	Entertainer entertainer = new Entertainer();
-	FolkHero folkHero = new FolkHero();
-	GuildArtisan guildArtisan = new GuildArtisan();
-	Hermit hermit = new Hermit();
-	Noble noble = new Noble();
-	Outlander outlander = new Outlander();
-	Sage sage = new Sage();
-	Sailor sailor = new Sailor();
-	Soldier soldier = new Soldier();
-	Urchin urchin = new Urchin();
-	
-	
+{	
 	private static final long serialVersionUID = -3135316718219106468L;
 	GridLayout entryGrid = new GridLayout(15,2);
 	private String[] race = {"Dragonborn", "Dwarf", "Hill Dwarf", "Mountain Dwarf", "Elf", "High Elf",
@@ -44,7 +28,7 @@ public class CenterPanel extends JPanel
 			"Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil"};
 	private String[] characterClass = {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
 			"Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
-	private Object[] backgrounds = {"Acolyte", "Charlatan", "Criminal", "Entertainer",
+	private String[] backgrounds = {"Acolyte", "Charlatan", "Criminal", "Entertainer",
 			"Folk Hero", "Guild Artisan", "Hermit", "Noble", "Outlander", "Sage",
 			"Sailor", "Soldier", "Urchin"};
 	
@@ -95,7 +79,7 @@ public class CenterPanel extends JPanel
 		JLabel backgroundLabel = new JLabel("Background");
 		add(backgroundLabel);
 		backgroundLabel.setHorizontalAlignment(JLabel.CENTER);
-		JComboBox<Object> backgroundChoice = new JComboBox<Object>(backgrounds);
+		JComboBox<String> backgroundChoice = new JComboBox<String>(backgrounds);
 		add(backgroundChoice);
 		backgroundChoice.setSelectedIndex(-1);
 		backgroundChoice.setRenderer(dlcr);
@@ -216,7 +200,27 @@ public class CenterPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				
+				ArrayList<JComboBox<String>> stringCombo = new ArrayList<JComboBox<String>>();
+				stringCombo.add(alignmentChoice);
+				stringCombo.add(raceChoice);
+				stringCombo.add(classChoice);
+				stringCombo.add(backgroundChoice);
+				ArrayList<JComboBox<Integer>> intCombo = new ArrayList<JComboBox<Integer>>();
+				intCombo.add(strengthNum);
+				intCombo.add(dexterityNum);
+				intCombo.add(constitutionNum);
+				intCombo.add(intelligenceNum);
+				intCombo.add(wisdomNum);
+				intCombo.add(charismaNum);
+				if(areAllPopulatedStrings(stringCombo) == false ||
+						areAllPopulatedInts(intCombo) == false)
+				{
+					System.out.println("False");
+				}
+				else
+				{
+					System.out.println("True");
+				}
 			}
 		});
 		
@@ -257,7 +261,7 @@ public class CenterPanel extends JPanel
 	 */
 	public void populateComboBox(JComboBox<Integer> comboBox)
 	{
-		for(int i = 8; i < 13; i++)
+		for(int i = 8; i < 17; i++)
 		{
 			comboBox.addItem(i);
 		}
@@ -268,7 +272,7 @@ public class CenterPanel extends JPanel
 	 * @param comboChoice
 	 * @return boolean
 	 */
-	public boolean isPopulated(JComboBox<Object> comboChoice)
+	public boolean isPopulated(JComboBox<String> comboChoice)
 	{
 		Object userBackground = comboChoice.getSelectedItem();
 		if(userBackground == null)
@@ -285,43 +289,154 @@ public class CenterPanel extends JPanel
 		}
 	}
 	
+	public boolean areAllPopulatedStrings(ArrayList<JComboBox<String>> comboBox)
+	{
+		for(JComboBox<String> entry : comboBox)
+		{
+			if(entry.getSelectedItem() == null)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public boolean areAllPopulatedInts(ArrayList<JComboBox<Integer>> comboBox)
+	{
+		for(JComboBox<Integer> entry : comboBox)
+		{
+			if(entry.getSelectedItem() == null)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * Determines the object associated with the ComboBox choice. This object
+	 * 
+	 * @param comboChoice, characterEntry, strengthNum, dexterityNum,
+	 * constitutionNum, intelligenceNum, wisdomNum, charismaNum
+	 * @return race
+	 */
+	public Object createCharacter(JTextField characterEntry, JComboBox<String> raceChoice,
+			JComboBox<Integer> strengthNum,
+			JComboBox<Integer> dexterityNum, JComboBox<Integer> constitutionNum,
+			JComboBox<Integer> intelligenceNum, JComboBox<Integer> wisdomNum,
+			JComboBox<Integer> charismaNum)
+	{
+		String name = characterEntry.getText();
+		int strength = getAbilityScore(strengthNum);
+		int dexterity = getAbilityScore(dexterityNum);
+		int constitution = getAbilityScore(constitutionNum);
+		int intelligence = getAbilityScore(intelligenceNum);
+		int wisdom = getAbilityScore(wisdomNum);
+		int charisma = getAbilityScore(charismaNum);
+		Object race = null;
+		String choice = (String)raceChoice.getSelectedItem();
+		switch(choice)
+		{
+		case "Dark Elf": race = new DarkElf(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Dragonborn": race = new Dragonborn(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Dwarf": race = new Dwarf(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Elf": race = new Elf(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Forest Gnome": race = new ForestGnome(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Gnome": race = new Gnome(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Half Elf": race = new HalfElf(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Halfling": race = new Halfling(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Half Orc": race = new HalfOrc(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "High Elf": race = new HighElf(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Hill Dwarf": race = new HillDwarf(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Human": race = new Human(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Lightfoot": race = new LightFoot(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Mountain Dwarf": race = new MountainDwarf(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Rock Gnome": race = new RockGnome(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Stout": race = new Stout(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Tiefling": race = new Tiefling(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+			break;
+		case "Wood Elf": race = new WoodElf(name, strength, dexterity, constitution,
+				intelligence, wisdom, charisma);
+		}
+		return race;
+	}	
+	
+	/*public String determineRace()
+	{
+		
+	}*/
+	
 	/**
 	 * Determines the object associated with the ComboBox choice. This object
 	 * is passed into the populateDialogBox method to be cast as type Background.
 	 * @param comboChoice
 	 * @return background
 	 */
-	public Object determineBackgroundClass(JComboBox<Object> comboChoice)
+	public Object determineBackgroundClass(JComboBox<String> comboChoice)
 	{
 		Object background = null;
 		String choice = (String)comboChoice.getSelectedItem();
 		switch(choice)
 		{
-		case "Acolyte": background = acolyte;
+		case "Acolyte": background = new Acolyte();
 			break;
-		case "Charlatan": background = charlatan;
+		case "Charlatan": background = new Charlatan();
 			break;
-		case "Criminal": background = criminal;
+		case "Criminal": background = new Criminal();
 			break;
-		case "Entertainer": background = entertainer;
+		case "Entertainer": background = new Entertainer();
 			break;
-		case "Folk Hero": background = folkHero;
+		case "Folk Hero": background = new FolkHero();
 			break;
-		case "Guild Artisan": background = guildArtisan;
+		case "Guild Artisan": background = new GuildArtisan();
 			break;
-		case "Hermit": background = hermit;
+		case "Hermit": background = new Hermit();
 			break;
-		case "Noble": background = noble;
+		case "Noble": background = new Noble();
 			break;
-		case "Outlander": background = outlander;
+		case "Outlander": background = new Outlander();
 			break;
-		case "Sage": background = sage;
+		case "Sage": background = new Sage();
 			break;
-		case "Sailor": background = sailor;
+		case "Sailor": background = new Sailor();
 			break;
-		case "Soldier": background = soldier;
+		case "Soldier": background = new Soldier();
 			break;
-		case "Urchin": background = urchin;
+		case "Urchin": background = new Urchin();
+			break;
 		}
 		return background;
 	}
@@ -429,4 +544,22 @@ public class CenterPanel extends JPanel
 			return null;
 		}
 	}
+	
+	/**
+	 * Gets the ability score entered by the user for one ComboBox.
+	 * @param comboBoxSelection
+	 * @return
+	 */
+	public int getAbilityScore(JComboBox<Integer> comboBoxSelection)
+	{
+		return (int)comboBoxSelection.getSelectedItem();
+	}
+	/*
+	public int getAbilityModifier(JComboBox<Object> comboBoxSelection, Object character)
+	{
+		int abilityNum = (int) comboBoxSelection.getSelectedItem();
+		
+		
+	}
+	*/
 }

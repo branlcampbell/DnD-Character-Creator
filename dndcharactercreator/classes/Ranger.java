@@ -44,7 +44,7 @@ public class Ranger implements Class
 	 */
 	public int getHitPoints()
 	{
-		return 6 + character.getConstitution();
+		return 10 + character.getConstitution();
 	}
 	
 	/**
