@@ -2,6 +2,7 @@ package dndcharactercreator.backgrounds;
 
 public class Sage implements Background
 {
+	private String backgroundName = "Sage";
 	private String[] skillProficiencies = {"Arcana", "History"};
 	private String[] languages = {"Two of Your Choice"};
 	private String[] equipment = {"Bottle of Black Ink", "Quill", "Small Knife",
@@ -10,8 +11,7 @@ public class Sage implements Background
 	private String[] specialty = {"Alchemist", "Astronomer", "Discredited Academic", "Librarian",
 			"Professor", "Researcher", "Wizard's Apprentice", "Scribe"};
 	private String[] features = {"Researcher"};
-	private String[] personalityTraits = {};
-	private String[] ideals = {"I use polysyllabic words that convey the impression of great erudition.",
+	private String[] personalityTraits = {"I use polysyllabic words that convey the impression of great erudition.",
 			"I've read every book in the world's greatest libraries--or I like to boast that I have.",
 			"I'm used to helping out those who aren't as smart as I am, and I patiently explain anything "
 			+ "and everything to others.",
@@ -20,12 +20,19 @@ public class Sage implements Background
 			"I...speak...slowly...when talking...to idiots...which...almost...everyone...is...compared...to me.",
 			"I am horribly, horribly awkward in social situations.",
 			"I'm convinced that people are always trying to steal my secrets"};
-	private String[] bonds = {"The path to power and self-improvement is through knowledge. (Neutral)",
+	private String[] ideals = {"The path to power and self-improvement is through knowledge. (Neutral)",
 			"What is beautiful points us beyond itself toward what is true. (Good)",
 			"EMotions must not cloud our logical thinking. (Lawful)",
 			"Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)",
 			"Knowledge is the path to power and domination. (Evil)",
 			"The goal of a life of study is the betterment of oneself. (Any)"};
+	private String[] bonds = {"It is my duty to protect my students.",
+			"I have an ancient text that holds terrible secrets that must not fall into "
+			+ "the wrong hands.",
+			"I work to preserve a library, university, sciptorium, or monastery.",
+			"My life's work is a series of tomes related to a specific field of lore.",
+			"I've been searching my whole life for the answer to a certain question.",
+			"I sold my soul for knowledge. I hope to do great deeds and win it back."};
 	private String[] flaws = {"I am easily distracted by the promise of information.",
 			"Most people scream and run when they see a demon. I stop and take notes on its anatomy.",
 			"Unlocking an ancient mystery is worth the price of civilization.",
@@ -80,5 +87,10 @@ public class Sage implements Background
 	public String[] getFlaws()
 	{
 		return flaws;
+	}
+	
+	public String getBackgroundName()
+	{
+		return backgroundName;
 	}
 }

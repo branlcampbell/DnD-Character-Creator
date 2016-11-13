@@ -2,6 +2,7 @@ package dndcharactercreator.backgrounds;
 
 public class Noble implements Background
 {
+	private String backgroundName = "Noble";
 	private String[] skillProficiencies = {"History", "Persuasion"};
 	private String[] toolProficiencies = {"One Type of Gaming Set"};
 	private String[] languages = {"One of Your Choice"};
@@ -86,5 +87,10 @@ public class Noble implements Background
 	public String[] getFlaws()
 	{
 		return flaws;
+	}
+	
+	public String getBackgroundName()
+	{
+		return backgroundName;
 	}
 }

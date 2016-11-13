@@ -15,4 +15,6 @@ public interface Background
 	String[] getBonds();
 	
 	String[] getFlaws();
+	
+	String getBackgroundName();
 }

@@ -2,6 +2,7 @@ package dndcharactercreator.backgrounds;
 
 public class FolkHero implements Background
 {
+	private String backgroundName = "Folk Hero";
 	private String[] skillProficiencies = {"Animal Handling", "Survival"};
 	private String[] toolProficiencies = {"One Type of Artisan's Tools", "Vehicles (Land)"};
 	private String[] equipment = {"Set of Artisan's Tools", "Shovel", "Iron Pot",
@@ -92,5 +93,10 @@ public class FolkHero implements Background
 	public String[] getFlaws()
 	{
 		return flaws;
+	}
+	
+	public String getBackgroundName()
+	{
+		return backgroundName;
 	}
 }

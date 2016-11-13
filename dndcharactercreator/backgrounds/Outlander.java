@@ -2,6 +2,7 @@ package dndcharactercreator.backgrounds;
 
 public class Outlander implements Background
 {
+	private String backgroundName = "Outlander";
 	private String[] skillProficiencies = {"Athletics", "Survival"};
 	private String[] toolProficiencies = {"One Type of Musical Instrument"};
 	private String[] languages = {"One of Your Choice"};
@@ -94,5 +95,10 @@ public class Outlander implements Background
 	public String[] getFlaws()
 	{
 		return flaws;
+	}
+	
+	public String getBackgroundName()
+	{
+		return backgroundName;
 	}
 }

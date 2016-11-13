@@ -2,6 +2,7 @@ package dndcharactercreator.backgrounds;
 
 public class Hermit implements Background
 {
+	private String backgroundName = "Hermit";
 	private String[] skillProficiencies = {"Medicine", "Religion"};
 	private String[] toolProficiencies = {"Herbalism Kit"};
 	private String[] languages = {"One of Your Choice"};
@@ -98,5 +99,10 @@ public class Hermit implements Background
 	public String[] getFlaws()
 	{
 		return flaws;
+	}
+	
+	public String getBackgroundName()
+	{
+		return backgroundName;
 	}
 }

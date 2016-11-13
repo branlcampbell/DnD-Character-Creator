@@ -2,6 +2,7 @@ package dndcharactercreator.backgrounds;
 
 public class GuildArtisan implements Background
 {
+	private String backgroundName = "Guild Artisan";
 	private String[] skillProficiencies = {"Insight", "Persuasion"};
 	private String[] toolProficiencies = {"One Type of Artisan's Tools"};
 	private String[] equipment = {"Set of Artisan's Tools", "Letter of Introduction From Your Guild",
@@ -104,5 +105,10 @@ public class GuildArtisan implements Background
 	public String[] getFlaws()
 	{
 		return flaws;
+	}
+	
+	public String getBackgroundName()
+	{
+		return backgroundName;
 	}
 }

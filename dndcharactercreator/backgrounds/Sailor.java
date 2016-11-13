@@ -2,6 +2,7 @@ package dndcharactercreator.backgrounds;
 
 public class Sailor implements Background
 {
+	private String backgroundName = "Sailor";
 	private String[] skillProficiencies = {"Athletics", "Perception"};
 	private String[] toolProficiencies = {"Navigator's Tools", "Vehicles (Water)"};
 	private String[] equipment = {"Belaying Pin (Club)", "50 Feet of Silk Rope",
@@ -79,5 +80,10 @@ public class Sailor implements Background
 	public String[] getFlaws()
 	{
 		return flaws;
+	}
+	
+	public String getBackgroundName()
+	{
+		return backgroundName;
 	}
 }

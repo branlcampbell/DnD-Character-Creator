@@ -2,6 +2,7 @@ package dndcharactercreator.backgrounds;
 
 public class Criminal implements Background
 {
+	private String backgroundName = "Criminal";
 	private String[] skillProficiencies = {"Deception", "Stealth"};
 	private String[] toolProficiencies = {"One type of gaming set", "Thieves' tools"};
 	private String[] equipment = {"Crowbar", "Set of Dark Common Clothes Including a Hood", "Belt Pouch "
@@ -86,5 +87,10 @@ public class Criminal implements Background
 	public String[] getFlaws()
 	{
 		return flaws;
+	}
+	
+	public String getBackgroundName()
+	{
+		return backgroundName;
 	}
 }

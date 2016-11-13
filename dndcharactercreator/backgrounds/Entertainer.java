@@ -2,6 +2,7 @@ package dndcharactercreator.backgrounds;
 
 public class Entertainer implements Background
 {
+	private String backgroundName = "Entertainer";
 	private String[] skillProficiencies = {"Acrobatics", "Performance"};
 	private String[] toolProficiencies = {"Diguise Kit", "One Type of Musical Instrument"};
 	private String[] equipment = {"Musical Instrument of Your Choice", "Favor of an Admirer",
@@ -85,5 +86,10 @@ public class Entertainer implements Background
 	public String[] getFlaws()
 	{
 		return flaws;
+	}
+	
+	public String getBackgroundName()
+	{
+		return backgroundName;
 	}
 }

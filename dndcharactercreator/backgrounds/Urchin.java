@@ -2,6 +2,7 @@ package dndcharactercreator.backgrounds;
 
 public class Urchin implements Background
 {
+	private String backgroundName = "Urchin";
 	private String[] skillProficiencies = {"Sleight of Hand", "Stealth"};
 	private String[] toolProficiencies = {"Disguise Kit", "Thieves' Tools"};
 	private String[] equipment = {"Small Knife", "Map of the City You Grew Up In",
@@ -78,5 +79,10 @@ public class Urchin implements Background
 	public String[] getFlaws()
 	{
 		return flaws;
+	}
+	
+	public String getBackgroundName()
+	{
+		return backgroundName;
 	}
 }

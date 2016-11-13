@@ -2,6 +2,7 @@ package dndcharactercreator.backgrounds;
 
 public class Charlatan implements Background
 {
+	private String backgroundName = "Charlatan";
 	private String[] skillProficiencies = {"Deception", "Sleight of Hand"};
 	private String[] toolProficiencies = {"Disguise Kit", "Forgery Kit"};
 	private String[] equipment = {"Set of Fine Clothes", "Disguise Kit", "Tools of the Con of Your Choice",
@@ -92,5 +93,10 @@ public class Charlatan implements Background
 	public String[] getFlaws()
 	{
 		return flaws;
+	}
+	
+	public String getBackgroundName()
+	{
+		return backgroundName;
 	}
 }

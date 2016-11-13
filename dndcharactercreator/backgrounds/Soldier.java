@@ -2,6 +2,7 @@ package dndcharactercreator.backgrounds;
 
 public class Soldier implements Background
 {
+	private String backgroundName = "Soldier";
 	private String[] skillProficiencies = {"Athletics", "Intimidation"};
 	private String[] toolProficiencies = {"One Type of Gaming Set", "Vehicles (Land)"};
 	private String[] equipment = {"Insignia of Rank", "Trophy Taken From a Fallen Enemy",
@@ -85,5 +86,10 @@ public class Soldier implements Background
 	public String[] getFlaws()
 	{
 		return flaws;
+	}
+	
+	public String getBackgroundName()
+	{
+		return backgroundName;
 	}
 }

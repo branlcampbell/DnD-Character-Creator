@@ -2,6 +2,7 @@ package dndcharactercreator.backgrounds;
 
 public class Acolyte implements Background
 {
+	private String backgroundName = "Acolyte";
 	private String[] skillProficiencies = {"Insight", "Religion"};
 	private String[] languages = {"Two of Your Choice"};
 	private String[] equipment = {"Holy Symbol", "Prayer Book", "5 Sticks of Incense", "Vestments",
@@ -80,5 +81,10 @@ public class Acolyte implements Background
 	public String[] getFlaws()
 	{
 		return flaws;
+	}
+	
+	public String getBackgroundName()
+	{
+		return backgroundName;
 	}
 }
