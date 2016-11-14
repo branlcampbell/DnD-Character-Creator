@@ -7,7 +7,7 @@ public class Trident implements Wieldable
 	private int weight = 4;
 	private String properties = "Thrown (range 20/60), versatile (1d8)";
 	
-	Trident()
+	public Trident()
 	{
 		
 	}

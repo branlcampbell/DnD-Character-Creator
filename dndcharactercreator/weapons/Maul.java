@@ -7,7 +7,7 @@ public class Maul implements Wieldable
 	private int weight = 10;
 	private String properties = "Heavy, two-handed";
 	
-	Maul()
+	public Maul()
 	{
 		
 	}

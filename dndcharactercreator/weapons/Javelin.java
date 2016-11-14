@@ -7,7 +7,7 @@ public class Javelin implements Wieldable
 	private int weight = 2;
 	private String properties = "Thrown (range 30/120)";
 	
-	Javelin()
+	public Javelin()
 	{
 		
 	}

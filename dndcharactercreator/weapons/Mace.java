@@ -5,9 +5,9 @@ public class Mace implements Wieldable
 	private String damageDie = "1d6";
 	private String damageType = "Bludgeoning";
 	private int weight = 4;
-	private String properties = null;
+	private String properties = "";
 	
-	Mace()
+	public Mace()
 	{
 		
 	}

@@ -7,7 +7,7 @@ public class Greatclub implements Wieldable
 	private int weight = 10;
 	private String properties = "Two-handed";
 	
-	Greatclub()
+	public Greatclub()
 	{
 		
 	}

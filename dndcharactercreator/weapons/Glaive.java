@@ -7,7 +7,7 @@ public class Glaive implements Wieldable
 	private int weight = 6;
 	private String properties = "Heavy, reach, two-handed";
 	
-	Glaive()
+	public Glaive()
 	{
 		
 	}

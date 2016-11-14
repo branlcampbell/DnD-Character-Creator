@@ -7,7 +7,7 @@ public class Dart implements Wieldable
 	private int weight = 1/4;
 	private String properties = "Finesse, thrown (range 20/60)";
 	
-	Dart()
+	public Dart()
 	{
 		
 	}

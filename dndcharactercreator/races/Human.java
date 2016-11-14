@@ -4,7 +4,6 @@
  */
 package dndcharactercreator.races;
 
-/** Extends from superclass NoRace. */
 public class Human extends NoRace
 {
 	private int speed = 30;
@@ -17,29 +16,27 @@ public class Human extends NoRace
 		/** +1 to all attributes bonus from racial modifier. */
 		super(name, strength + 1, dexterity + 1, constitution + 1, intelligence + 1, wisdom + 1, charisma + 1);
 	}
-	
-	/**
-	 * Returns the speed of a human.
-	 * @return speed
-	 */
+
 	public int getSpeed()
 	{
 		return speed;
 	}
 
-	/**
-	 * Returns naturally known languages.
-	 * @return languages
-	 */
 	public String[] getLanguages()
 	{
 		return languages;
 	}
+
+	public String[] getRacialBonus()
+	{
+		return null;
+	}
 	
-	/**
-	 * Returns the size of a human.
-	 * @return size
-	 */
+	public String[] getSubRacialBonus()
+	{
+		return null;
+	}
+	
 	public String getSize()
 	{
 		return size;

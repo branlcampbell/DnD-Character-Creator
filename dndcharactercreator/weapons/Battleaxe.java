@@ -7,7 +7,7 @@ public class Battleaxe implements Wieldable
 	private int weight = 4;
 	private String properties = "Versatile (1d10)";
 	
-	Battleaxe()
+	public Battleaxe()
 	{
 		
 	}

@@ -7,7 +7,7 @@ public class Spear implements Wieldable
 	private int weight = 3;
 	private String properties = "Thrown (range 20/60), versatile (1d8)";
 	
-	Spear()
+	public Spear()
 	{
 		
 	}

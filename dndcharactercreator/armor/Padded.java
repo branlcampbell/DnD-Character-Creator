@@ -7,7 +7,7 @@ public class Padded implements Wearable
 	private String stealth = "Disadvantage";
 	private int weight = 8;
 	
-	Padded()
+	public Padded()
 	{
 		
 	}

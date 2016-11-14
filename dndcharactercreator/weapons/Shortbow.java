@@ -7,7 +7,7 @@ public class Shortbow implements Wieldable
 	private int weight = 2;
 	private String properties = "Ammunition (range 80/320), two handed";
 	
-	Shortbow()
+	public Shortbow()
 	{
 		
 	}

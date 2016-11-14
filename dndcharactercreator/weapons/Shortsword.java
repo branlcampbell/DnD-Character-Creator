@@ -7,7 +7,7 @@ public class Shortsword implements Wieldable
 	private int weight = 2;
 	private String properties = "Finesse, light";
 	
-	Shortsword()
+	public Shortsword()
 	{
 		
 	}

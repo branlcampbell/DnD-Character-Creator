@@ -7,7 +7,7 @@ public class Shield implements Wearable
 	private String stealth = null;
 	private int weight = 6;
 	
-	Shield()
+	public Shield()
 	{
 		
 	}

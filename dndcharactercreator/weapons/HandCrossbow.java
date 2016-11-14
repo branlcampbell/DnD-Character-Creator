@@ -7,7 +7,7 @@ public class HandCrossbow implements Wieldable
 	private int weight = 3;
 	private String properties = "Ammunition (range 30/120), light, loading";
 	
-	HandCrossbow()
+	public HandCrossbow()
 	{
 		
 	}

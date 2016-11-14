@@ -5,9 +5,9 @@ public class WarPick implements Wieldable
 	private String damageDie = "1d8";
 	private String damageType = "Piercing";
 	private int weight = 2;
-	private String properties = null;
+	private String properties = "";
 	
-	WarPick()
+	public WarPick()
 	{
 		
 	}

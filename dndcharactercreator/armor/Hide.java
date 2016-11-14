@@ -7,7 +7,7 @@ public class Hide implements Wearable
 	private String stealth = null;
 	private int weight = 12;
 	
-	Hide()
+	public Hide()
 	{
 		
 	}

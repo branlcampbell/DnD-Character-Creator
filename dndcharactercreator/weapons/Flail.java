@@ -5,9 +5,9 @@ public class Flail implements Wieldable
 	private String damageDie = "1d8";
 	private String damageType = "Bludgeoning";
 	private int weight = 2;
-	private String properties = null;
+	private String properties = "";
 	
-	Flail()
+	public Flail()
 	{
 		
 	}

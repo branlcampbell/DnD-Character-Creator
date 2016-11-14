@@ -7,7 +7,7 @@ public class Rapier implements Wieldable
 	private int weight = 2;
 	private String properties = "Finesse";
 	
-	Rapier()
+	public Rapier()
 	{
 		
 	}

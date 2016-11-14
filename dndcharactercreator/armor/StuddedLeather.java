@@ -7,7 +7,7 @@ public class StuddedLeather implements Wearable
 	private String stealth = null;
 	private int weight = 13;
 	
-	StuddedLeather()
+	public StuddedLeather()
 	{
 		
 	}

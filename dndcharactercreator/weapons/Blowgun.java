@@ -7,7 +7,7 @@ public class Blowgun implements Wieldable
 	private int weight = 1;
 	private String properties = "Ammunition (range 25/100), loading";
 	
-	Blowgun()
+	public Blowgun()
 	{
 		
 	}

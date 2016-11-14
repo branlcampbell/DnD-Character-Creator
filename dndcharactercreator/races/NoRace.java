@@ -4,13 +4,12 @@
  * The default constructor for each new character created.
  * Each race inherits from this class so racial modifiers can be added
  * when calculating all stats.
+ * All races will also inherit the racial interface.
  */
 package dndcharactercreator.races;
 
-// Default racial superclass.
-public abstract class NoRace 
+public abstract class NoRace implements Racial
 {
-	// Class variables
 	private String name;
 	private int strength;
 	private int dexterity;
@@ -19,7 +18,6 @@ public abstract class NoRace
 	private int wisdom;
 	private int charisma;
 	
-	// Default constructor.
 	public NoRace()
 	{
 		
@@ -46,65 +44,37 @@ public abstract class NoRace
 		this.wisdom = wisdom;
 		this.charisma = charisma;
 	}
-	
-	/**
-	 * Returns the character's name.
-	 * @return name
-	 */
+
 	public String getName()
 	{
 		return name;
 	}
 	
-	/**
-	 * Returns the strength value of the character.
-	 * @return strength
-	 */
 	public int getStrength()
 	{
 		return strength;
 	}
 
-	/**
-	 * Returns the dexterity value of the character.
-	 * @return dexterity
-	 */
 	public int getDexterity()
 	{
 		return dexterity;
 	}
 	
-	/**
-	 * Returns the constitution value of the character.
-	 * @return constitution
-	 */
 	public int getConstitution()
 	{
 		return constitution;
 	}
 	
-	/**
-	 * Returns the intelligence value of the character.
-	 * @return intelligence
-	 */
 	public int getIntelligence()
 	{
 		return intelligence;
 	}
-	
-	/**
-	 * Returns the wisdom value of the character.
-	 * @return wisdom
-	 */
+
 	public int getWisdom()
 	{
 		return wisdom;
 	}
-	
-	/**
-	 * Returns the charisma value of the character.
-	 * @return charisma
-	 */
+
 	public int getCharisma()
 	{
 		return charisma;

@@ -7,7 +7,7 @@ public class Quarterstaff implements Wieldable
 	private int weight = 4;
 	private String properties = "Versatile (1d8)";
 	
-	Quarterstaff()
+	public Quarterstaff()
 	{
 		
 	}

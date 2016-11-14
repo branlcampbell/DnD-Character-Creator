@@ -7,7 +7,7 @@ public class RingMail implements Wearable
 	private String stealth = "Disadvantage";
 	private int weight = 40;
 	
-	RingMail()
+	public RingMail()
 	{
 		
 	}

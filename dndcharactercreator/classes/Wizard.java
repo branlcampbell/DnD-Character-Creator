@@ -3,7 +3,6 @@
  * @version 1.0
  */
 package dndcharactercreator.classes;
-import dndcharactercreator.races.*;
 
 public class Wizard implements Class
 {
@@ -18,90 +17,51 @@ public class Wizard implements Class
 	private String[] secondEquipmentChoice = {"Component Pouch", "Arcane Focus"};
 	private String[] thirdEquipmentChoice = {"Scholar's Pack", "Explorer's Pack"};
 	private String[] guaranteedEquipment = {"Spellbook"};
-	
-	/** Allows for constitution to be retrieved. */
-	NoRace character;
-	
-	Wizard()
+
+	public Wizard()
 	{
 		
 	}
-	
-	/**
-	 * Returns the hit dice amount.
-	 * @return hitDice
-	 */
+
 	public String getHitDice()
 	{
 		return hitDice;
 	}
-	
-	/**
-	 * Returns total hit points from class and constitution modifier.
-	 * @return hitPoints
-	 */
-	public int getHitPoints()
+
+	public int getHitPoints(int constitution)
 	{
-		return 6 + character.getConstitution();
+		return 6 + constitution;
 	}
-	
-	/**
-	 * Returns the proficiency bonus of the class.
-	 * @return proficiencyBonus
-	 */
+
 	public int getProficiencyBonus()
 	{
 		return proficiencyBonus;
 	}
 
-	/**
-	 * Returns the types of saving throws that can be made by the class.
-	 * @return savingThrows
-	 */
 	public String[] getSavingThrows() 
 	{
 		return savingThrows;
 	}
 
-	/**
-	 * Returns the skills the class can choose from.
-	 * @return skills
-	 */
 	public String[] getSkills() {
 		return skills;
 	}
-	
-	/**
-	 * Returns features of class.
-	 * @return features
-	 */
+
 	public String[] getFeatures()
 	{
 		return features;
 	}
-	
-	/**
-	 * Returns proficiencies of class.
-	 * @return proficiencies
-	 */
+
 	public String[] getProficiencies()
 	{
 		return proficiencies;
 	}
-	
-	/**
-	 * Returns first equipment choice the class has.
-	 * @return firstEquipmentChoice
-	 */
+
 	public String[] getFirstEquipmentChoice()
 	{
 		return firstEquipmentChoice;
 	}
-	
-	/**
-	 * Returns second equipment choice the class has.
-	 * @return secondEquipmentChoice
-	 */
+
 	public String[] getSecondEquipmentChoice()
 	{
 		return secondEquipmentChoice;
@@ -112,10 +72,11 @@ public class Wizard implements Class
 		return thirdEquipmentChoice;
 	}
 	
-	/**
-	 * Returns the equipment the class is guaranteed to start with.
-	 * @return guaranteedEquipment
-	 */
+	public String[] getFourthEquipmentChoice()
+	{
+		return null;
+	}
+	
 	public String[] getGuaranteedEquipment()
 	{
 		return guaranteedEquipment;

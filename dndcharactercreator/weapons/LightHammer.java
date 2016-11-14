@@ -7,7 +7,7 @@ public class LightHammer implements Wieldable
 	private int weight = 2;
 	private String properties = "Light, thrown (range 20/60)";
 	
-	LightHammer()
+	public LightHammer()
 	{
 		
 	}

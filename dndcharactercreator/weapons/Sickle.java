@@ -7,7 +7,7 @@ public class Sickle implements Wieldable
 	private int weight = 2;
 	private String properties = "Light)";
 	
-	Sickle()
+	public Sickle()
 	{
 		
 	}

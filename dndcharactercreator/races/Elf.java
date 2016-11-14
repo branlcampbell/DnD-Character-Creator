@@ -4,7 +4,6 @@
  */
 package dndcharactercreator.races;
 
-/** Extends from superclass NoRace. */
 public class Elf extends NoRace
 {
 	private int speed = 30;
@@ -19,38 +18,27 @@ public class Elf extends NoRace
 		/** +2 dexterity bonus from racial modifier. */
 		super(name, strength, dexterity + 2, constitution, intelligence, wisdom, charisma);
 	}
-	
-	/**
-	 * Returns the speed of an elf.
-	 * @return speed
-	 */
+
 	public int getSpeed()
 	{
 		return speed;
 	}
-	
-	/**
-	 * Returns an array of each racial bonus.
-	 * @return racialBonus
-	 */
+
 	public String[] getRacialBonus()
 	{
 		return racialBonus;
 	}
 	
-	/**
-	 * Returns naturally known languages.
-	 * @return languages
-	 */
+	public String[] getSubRacialBonus()
+	{
+		return null;
+	}
+
 	public String[] getLanguages()
 	{
 		return languages;
 	}
-	
-	/**
-	 * Returns the size of an elf.
-	 * @return size
-	 */
+
 	public String getSize()
 	{
 		return size;

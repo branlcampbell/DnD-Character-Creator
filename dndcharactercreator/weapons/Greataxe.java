@@ -7,7 +7,7 @@ public class Greataxe implements Wieldable
 	private int weight = 7;
 	private String properties = "Heavy, two-handed";
 	
-	Greataxe()
+	public Greataxe()
 	{
 		
 	}

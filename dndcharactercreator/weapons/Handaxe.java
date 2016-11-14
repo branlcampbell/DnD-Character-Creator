@@ -7,7 +7,7 @@ public class Handaxe implements Wieldable
 	private int weight = 2;
 	private String properties = "Light, thrown (range 20/60)";
 	
-	Handaxe()
+	public Handaxe()
 	{
 		
 	}

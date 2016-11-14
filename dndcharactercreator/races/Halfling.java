@@ -4,7 +4,6 @@
  */
 package dndcharactercreator.races;
 
-/** Extends from superclass NoRace. */
 public class Halfling extends NoRace
 {
 	private int speed = 25;
@@ -18,38 +17,27 @@ public class Halfling extends NoRace
 		/** +2 dexterity bonus from racial modifier. */
 		super(name, strength, dexterity + 2, constitution, intelligence, wisdom, charisma);
 	}
-	
-	/**
-	 * Returns the speed of a halfling.
-	 * @return speed
-	 */
+
 	public int getSpeed()
 	{
 		return speed;
 	}
-	
-	/**
-	 * Returns an array of each racial bonus.
-	 * @return racialBonus
-	 */
+
 	public String[] getRacialBonus()
 	{
 		return racialBonus;
 	}
+
+	public String[] getSubRacialBonus()
+	{
+		return null;
+	}
 	
-	/**
-	 * Returns naturally known languages.
-	 * @return languages
-	 */
 	public String[] getLanguages()
 	{
 		return languages;
 	}
-	
-	/**
-	 * Returns the size of a halfling.
-	 * @return size
-	 */
+
 	public String getSize()
 	{
 		return size;

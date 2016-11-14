@@ -7,7 +7,7 @@ public class ScaleMail implements Wearable
 	private String stealth = "Disadvantage";
 	private int weight = 45;
 	
-	ScaleMail()
+	public ScaleMail()
 	{
 		
 	}

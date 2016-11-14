@@ -5,9 +5,9 @@ public class Morningstar implements Wieldable
 	private String damageDie = "1d8";
 	private String damageType = "Piercing";
 	private int weight = 4;
-	private String properties = null;
+	private String properties = "";
 	
-	Morningstar()
+	public Morningstar()
 	{
 		
 	}

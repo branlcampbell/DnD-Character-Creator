@@ -7,7 +7,7 @@ public class Club implements Wieldable
 	private int weight = 2;
 	private String properties = "Light";
 	
-	Club()
+	public Club()
 	{
 		
 	}

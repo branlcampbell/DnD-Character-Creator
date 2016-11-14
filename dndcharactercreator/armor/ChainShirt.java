@@ -7,7 +7,7 @@ public class ChainShirt implements Wearable
 	private String stealth = null;
 	private int weight = 20;
 	
-	ChainShirt()
+	public ChainShirt()
 	{
 		
 	}

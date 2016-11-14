@@ -3,11 +3,9 @@
  * @version 1.0
  */
 package dndcharactercreator.classes;
-import dndcharactercreator.races.*;
 
 public class Rogue implements Class
 {
-	/** Class variables. */
 	private String hitDice = "1d8";
 	private int proficiencyBonus = 2;
 	private String[] savingThrows = {"Dexterity", "Intelligence"};
@@ -21,89 +19,50 @@ public class Rogue implements Class
 	private String[] thirdEquipmentChoice = {"Burglar's Pack", "Dungeoneer's Pack", "Explorer's Pack"};
 	private String[] guaranteedEquipment = {"Leather Armor, Two Daggers, Thieves' Tools"};
 	
-	/** Allows for constitution to be retrieved. */
-	NoRace character;
-	
-	Rogue()
+	public Rogue()
 	{
 		
 	}
-	
-	/**
-	 * Returns the hit dice amount.
-	 * @return hitDice
-	 */
+
 	public String getHitDice()
 	{
 		return hitDice;
 	}
-	
-	/**
-	 * Returns total hit points from class and constitution modifier.
-	 * @return hitPoints
-	 */
-	public int getHitPoints()
+
+	public int getHitPoints(int constitution)
 	{
-		return 8 + character.getConstitution();
+		return 8 + constitution;
 	}
-	
-	/**
-	 * Returns the proficiency bonus of the class.
-	 * @return proficiencyBonus
-	 */
+
 	public int getProficiencyBonus()
 	{
 		return proficiencyBonus;
 	}
 
-	/**
-	 * Returns the types of saving throws that can be made by the class.
-	 * @return savingThrows
-	 */
 	public String[] getSavingThrows() 
 	{
 		return savingThrows;
 	}
 
-	/**
-	 * Returns the skills the class can choose from.
-	 * @return skills
-	 */
 	public String[] getSkills() {
 		return skills;
 	}
-	
-	/**
-	 * Returns features of class.
-	 * @return features
-	 */
+
 	public String[] getFeatures()
 	{
 		return features;
 	}
-	
-	/**
-	 * Returns proficiencies of class.
-	 * @return proficiencies
-	 */
+
 	public String[] getProficiencies()
 	{
 		return proficiencies;
 	}
-	
-	/**
-	 * Returns first equipment choice the class has.
-	 * @return firstEquipmentChoice
-	 */
+
 	public String[] getFirstEquipmentChoice()
 	{
 		return firstEquipmentChoice;
 	}
-	
-	/**
-	 * Returns second equipment choice the class has.
-	 * @return secondEquipmentChoice
-	 */
+
 	public String[] getSecondEquipmentChoice()
 	{
 		return secondEquipmentChoice;
@@ -113,11 +72,11 @@ public class Rogue implements Class
 	{
 		return thirdEquipmentChoice;
 	}
-	
-	/**
-	 * Returns the equipment the class is guaranteed to start with.
-	 * @return guaranteedEquipment
-	 */
+
+	public String[] getFourthEquipmentChoice()
+	{
+		return null;
+	}
 	public String[] getGuaranteedEquipment()
 	{
 		return guaranteedEquipment;

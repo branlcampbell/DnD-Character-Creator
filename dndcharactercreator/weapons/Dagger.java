@@ -7,7 +7,7 @@ public class Dagger implements Wieldable
 	private int weight = 2;
 	private String properties = "Finesse, light, thrown (range 20/60)";
 	
-	Dagger()
+	public Dagger()
 	{
 		
 	}

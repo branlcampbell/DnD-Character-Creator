@@ -7,7 +7,7 @@ public class Warhammer implements Wieldable
 	private int weight = 2;
 	private String properties = "Versatile (1d10)";
 	
-	Warhammer()
+	public Warhammer()
 	{
 		
 	}

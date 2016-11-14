@@ -200,6 +200,9 @@ public class CenterPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				ArrayList<JTextField> textFields = new ArrayList<JTextField>();
+				textFields.add(characterEntry);
+				textFields.add(playerEntry);
 				ArrayList<JComboBox<String>> stringCombo = new ArrayList<JComboBox<String>>();
 				stringCombo.add(alignmentChoice);
 				stringCombo.add(raceChoice);
@@ -212,14 +215,93 @@ public class CenterPanel extends JPanel
 				intCombo.add(intelligenceNum);
 				intCombo.add(wisdomNum);
 				intCombo.add(charismaNum);
-				if(areAllPopulatedStrings(stringCombo) == false ||
+				if(areAllPopulatedTextFields(textFields) == false || 
+						areAllPopulatedStrings(stringCombo) == false ||
 						areAllPopulatedInts(intCombo) == false)
 				{
-					System.out.println("False");
+					JOptionPane.showMessageDialog(null,
+						    "Some entries have not been filled in.",
+						    "Missing Entries",
+						    JOptionPane.ERROR_MESSAGE);
 				}
 				else
 				{
 					System.out.println("True");
+					Object character = createCharacter(characterEntry, raceChoice, strengthNum,
+							dexterityNum, constitutionNum, intelligenceNum,
+							wisdomNum, charismaNum);
+					if(raceChoice.getSelectedItem().equals("Dark Elf"))
+					{
+						DarkElf darkElfCharacter = (DarkElf) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Dragonborn"))
+					{
+						Dragonborn dragonbornCharacter = (Dragonborn) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Dwarf"))
+					{
+						Dwarf dwarfCharacter = (Dwarf) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Elf"))
+					{
+						Elf elfCharacter = (Elf) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Forest Gnome"))
+					{
+						ForestGnome forestGnomeCharacter = (ForestGnome) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Gnome"))
+					{
+						Gnome gnomeCharacter = (Gnome) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Half Elf"))
+					{
+						HalfElf halfElfCharacter = (HalfElf) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Halfling"))
+					{
+						Halfling halflingCharacter = (Halfling) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Half Orc"))
+					{
+						HalfOrc halfOrcCharacter = (HalfOrc) character;
+					}
+					if(raceChoice.getSelectedItem().equals("High Elf"))
+					{
+						HighElf highElfCharacter = (HighElf) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Hill Dwarf"))
+					{
+						HillDwarf hillDwarfCharacter = (HillDwarf) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Human"))
+					{
+						Human humanCharacter = (Human) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Lightfoot"))
+					{
+						LightFoot lightfootCharacter = (LightFoot) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Mountain Dwarf"))
+					{
+						MountainDwarf mountainDwarfCharacter = (MountainDwarf) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Rock Gnome"))
+					{
+						RockGnome rockGnomeCharacter = (RockGnome) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Stout"))
+					{
+						Stout stoutCharacter = (Stout) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Tiefling"))
+					{
+						Tiefling tieflingCharacter = (Tiefling) character;
+					}
+					if(raceChoice.getSelectedItem().equals("Wood Elf"))
+					{
+						WoodElf woodElfCharacter = (WoodElf) character;
+					}
 				}
 			}
 		});
@@ -256,7 +338,7 @@ public class CenterPanel extends JPanel
 	}
 	
 	/**
-	 * Fills each ability score ComboBox with values 8-12.
+	 * Fills each ability score ComboBox with values 8-16.
 	 * @param comboBox
 	 */
 	public void populateComboBox(JComboBox<Integer> comboBox)
@@ -289,6 +371,11 @@ public class CenterPanel extends JPanel
 		}
 	}
 	
+	/**
+	 * Checks if all ComboBoxes containing strings have an option selected.
+	 * @param comboBox
+	 * @return boolean
+	 */
 	public boolean areAllPopulatedStrings(ArrayList<JComboBox<String>> comboBox)
 	{
 		for(JComboBox<String> entry : comboBox)
@@ -301,6 +388,11 @@ public class CenterPanel extends JPanel
 		return true;
 	}
 	
+	/**
+	 * Check if all ComboBoxes containing integers have an option selected.
+	 * @param comboBox
+	 * @return boolean
+	 */
 	public boolean areAllPopulatedInts(ArrayList<JComboBox<Integer>> comboBox)
 	{
 		for(JComboBox<Integer> entry : comboBox)
@@ -314,8 +406,25 @@ public class CenterPanel extends JPanel
 	}
 	
 	/**
+	 * Check if all text fields have been filled.
+	 * @param entryField
+	 * @return boolean
+	 */
+	public boolean areAllPopulatedTextFields(ArrayList<JTextField> entryField)
+	{
+		for(JTextField entry : entryField)
+		{
+			if(entry.getText().trim().equals(""))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
 	 * Determines the object associated with the ComboBox choice. This object
-	 * 
+	 * will have to be cast to its proper type in order to be used.
 	 * @param comboChoice, characterEntry, strengthNum, dexterityNum,
 	 * constitutionNum, intelligenceNum, wisdomNum, charismaNum
 	 * @return race
@@ -390,14 +499,10 @@ public class CenterPanel extends JPanel
 			break;
 		case "Wood Elf": race = new WoodElf(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+			break;
 		}
 		return race;
 	}	
-	
-	/*public String determineRace()
-	{
-		
-	}*/
 	
 	/**
 	 * Determines the object associated with the ComboBox choice. This object
@@ -554,12 +659,30 @@ public class CenterPanel extends JPanel
 	{
 		return (int)comboBoxSelection.getSelectedItem();
 	}
-	/*
-	public int getAbilityModifier(JComboBox<Object> comboBoxSelection, Object character)
+	
+	public int getAbilityModifier(int abilityNum)
 	{
-		int abilityNum = (int) comboBoxSelection.getSelectedItem();
-		
-		
+		int modifier = 0;
+		if(abilityNum == 16 || abilityNum == 17)
+		{
+			modifier = 3;
+		}
+		if(abilityNum == 14 || abilityNum == 15)
+		{
+			modifier = 2;
+		}
+		if(abilityNum == 12 || abilityNum == 13)
+		{
+			modifier = 1;
+		}
+		if(abilityNum == 10 || abilityNum == 11)
+		{
+			modifier = 0;
+		}
+		if(abilityNum == 8 || abilityNum == 9)
+		{
+			modifier = -1;
+		}
+		return modifier;
 	}
-	*/
 }

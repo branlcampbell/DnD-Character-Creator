@@ -7,7 +7,7 @@ public class ChainMail implements Wearable
 	private String stealth = "Disadvantage";
 	private int weight = 55;
 	
-	ChainMail()
+	public ChainMail()
 	{
 		
 	}

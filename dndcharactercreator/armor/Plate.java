@@ -7,7 +7,7 @@ public class Plate implements Wearable
 	private String stealth = "Disadvantage";
 	private int weight = 65;
 	
-	Plate()
+	public Plate()
 	{
 		
 	}

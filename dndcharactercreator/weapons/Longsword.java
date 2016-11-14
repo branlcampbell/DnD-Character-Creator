@@ -7,7 +7,7 @@ public class Longsword implements Wieldable
 	private int weight = 3;
 	private String properties = "Versatile (1d10)";
 	
-	Longsword()
+	public Longsword()
 	{
 		
 	}

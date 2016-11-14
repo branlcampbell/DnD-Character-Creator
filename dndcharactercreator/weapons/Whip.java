@@ -7,7 +7,7 @@ public class Whip implements Wieldable
 	private int weight = 3;
 	private String properties = "Finesse, reach";
 	
-	Whip()
+	public Whip()
 	{
 		
 	}

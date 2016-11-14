@@ -4,10 +4,8 @@
  */
 package dndcharactercreator.races;
 
-/** Extends from parent class Dwarf, which extends from superclass NoClass. */
 public class HillDwarf extends Dwarf
 {
-	/** Class variables. */
 	private String[] racialBonus = {"Dwarven Toughness"};
 	
 	public HillDwarf(String name, int strength, int dexterity, int constitution,
@@ -16,11 +14,7 @@ public class HillDwarf extends Dwarf
 		/** +1 wisdom bonus from racial modifier. */
 		super(name, strength, dexterity, constitution, intelligence, wisdom + 1, charisma);
 	}
-	
-	/**
-	 * Returns the subrace's racial bonus.
-	 * @return racialBonus
-	 */
+
 	public String[] getSubRacialBonus()
 	{
 		return racialBonus;

@@ -7,7 +7,7 @@ public class Lance implements Wieldable
 	private int weight = 6;
 	private String properties = "Reach, special";
 	
-	Lance()
+	public Lance()
 	{
 		
 	}

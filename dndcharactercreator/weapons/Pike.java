@@ -7,7 +7,7 @@ public class Pike implements Wieldable
 	private int weight = 18;
 	private String properties = "Heavy, reach, two-handed";
 	
-	Pike()
+	public Pike()
 	{
 		
 	}

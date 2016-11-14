@@ -4,7 +4,6 @@
  */
 package dndcharactercreator.races;
 
-/** Extends from superclass NoRace. */
 public class Dragonborn extends NoRace
 {
 	private int speed = 30;
@@ -18,38 +17,27 @@ public class Dragonborn extends NoRace
 		/** +2 strength and +1 charisma bonus from racial modifier. */
 		super(name, strength + 2, dexterity, constitution, intelligence, wisdom, charisma + 1);
 	}
-	
-	/**
-	 * Returns the speed of a dragonborn.
-	 * @return speed
-	 */
+
 	public int getSpeed()
 	{
 		return speed;
 	}
 	
-	/**
-	 * Returns an array of each racial bonus.
-	 * @return racialBonus
-	 */
 	public String[] getRacialBonus()
 	{
 		return racialBonus;
 	}
+	
+	public String[] getSubRacialBonus()
+	{
+		return null;
+	}
 
-	/**
-	 * Returns naturally known languages.
-	 * @return languages
-	 */
 	public String[] getLanguages()
 	{
 		return languages;
 	}
 	
-	/**
-	 * Returns the size of a dragonborn.
-	 * @return size
-	 */
 	public String getSize()
 	{
 		return size;

@@ -7,7 +7,7 @@ public class Halberd implements Wieldable
 	private int weight = 6;
 	private String properties = "Heavy, reach, two-handed";
 	
-	Halberd()
+	public Halberd()
 	{
 		
 	}

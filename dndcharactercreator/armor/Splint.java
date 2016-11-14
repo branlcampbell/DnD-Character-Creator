@@ -7,7 +7,7 @@ public class Splint implements Wearable
 	private String stealth = "Disadvantage";
 	private int weight = 60;
 	
-	Splint()
+	public Splint()
 	{
 		
 	}

@@ -7,7 +7,7 @@ public class Longbow implements Wieldable
 	private int weight = 2;
 	private String properties = "Ammunition (range 150/600), heavy, two-handed";
 	
-	Longbow()
+	public Longbow()
 	{
 		
 	}

@@ -7,7 +7,7 @@ public class Greatsword implements Wieldable
 	private int weight = 6;
 	private String properties = "Heavy, two-handed";
 	
-	Greatsword()
+	public Greatsword()
 	{
 		
 	}

@@ -4,10 +4,8 @@
  */
 package dndcharactercreator.races;
 
-/** Extends from superclass NoRace. */
 public class Dwarf extends NoRace
 {
-	/** Class variables. */
 	private int speed = 25;
 	private String size = "Medium";
 	private String[] languages = {"Common", "Dwarven"};
@@ -22,37 +20,26 @@ public class Dwarf extends NoRace
 		super(name, strength, dexterity, constitution + 2, intelligence, wisdom, charisma);
 	}
 	
-	/**
-	 * Returns the speed of a dwarf.
-	 * @return speed
-	 */
 	public int getSpeed()
 	{
 		return speed;
 	}
 	
-	/**
-	 * Returns an array of each racial bonus.
-	 * @return racialBonus
-	 */
 	public String[] getRacialBonus()
 	{
 		return racialBonus;
 	}
 	
-	/**
-	 * Returns naturally known languages.
-	 * @return languages
-	 */
+	public String[] getSubRacialBonus()
+	{
+		return null;
+	}
+	
 	public String[] getLanguages()
 	{
 		return languages;
 	}
 	
-	/**
-	 * Returns the size of a dwarf.
-	 * @return size
-	 */
 	public String getSize()
 	{
 		return size;

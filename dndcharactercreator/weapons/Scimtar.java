@@ -7,7 +7,7 @@ public class Scimtar implements Wieldable
 	private int weight = 3;
 	private String properties = "Finesse, light";
 	
-	Scimtar()
+	public Scimtar()
 	{
 		
 	}

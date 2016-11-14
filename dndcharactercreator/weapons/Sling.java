@@ -7,7 +7,7 @@ public class Sling implements Wieldable
 	private int weight = 0;
 	private String properties = "Ammunition (range 30/120)";
 	
-	Sling()
+	public Sling()
 	{
 		
 	}
