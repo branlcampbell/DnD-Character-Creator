@@ -1,8 +1,9 @@
 package dndcharactercreator.classes;
 
+import java.util.ArrayList;
+
 public interface Class 
 {
-	
 	/**
 	 * Returns the hit dice amount.
 	 * @return hitDice
@@ -67,9 +68,18 @@ public interface Class
 	 * Returns fourth equipment choice the class has.
 	 */
 	String[] getFourthEquipmentChoice();
+	
 	/**
 	 * Returns the equipment the class is guaranteed to start with.
 	 * @return guaranteedEquipment
 	 */
 	String[] getGuaranteedEquipment();
+	
+	/**
+	 * Returns all features of the class in an ArrayList. Constitution is needed
+	 * in order to determine hit points.
+	 * @param constitution
+	 * @return features
+	 */
+	ArrayList<String> getAllFeatures(int constitution);
 }

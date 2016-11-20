@@ -4,6 +4,9 @@
  */
 package dndcharactercreator.classes;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Cleric implements Class
 {
 	private String hitDice = "1d8";
@@ -80,5 +83,20 @@ public class Cleric implements Class
 	public String[] getGuaranteedEquipment()
 	{
 		return guaranteedEquipment;
+	}
+	
+	public ArrayList<String> getAllFeatures(int constitution)
+	{
+		ArrayList<String> features = new ArrayList<String>();
+		
+		features.add(getHitDice());
+		features.add(String.valueOf(getHitPoints(constitution)));
+		features.add(String.valueOf(getProficiencyBonus()));
+		features.add(Arrays.toString(getSavingThrows()));
+		features.add(Arrays.toString(getSkills()));
+		features.add(Arrays.toString(getFeatures()));
+		features.add(Arrays.toString(getProficiencies()));
+		features.add(Arrays.toString(getGuaranteedEquipment()));
+		return features;
 	}
 }

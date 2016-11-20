@@ -146,7 +146,7 @@ public class CenterPanel extends JPanel
 			{
 				if(isPopulated(backgroundChoice) == true)
 				{
-					Object chosenBackground = determineBackgroundClass(backgroundChoice);
+					Object chosenBackground = determineBackground(backgroundChoice);
 					displayPersonalityDialogBox(chosenBackground);
 				}
 			}
@@ -160,7 +160,7 @@ public class CenterPanel extends JPanel
 			{
 				if(isPopulated(backgroundChoice) == true)
 				{
-					Object chosenBackground = determineBackgroundClass(backgroundChoice);
+					Object chosenBackground = determineBackground(backgroundChoice);
 					displayIdealsDialogBox(chosenBackground);
 				}
 			}
@@ -174,7 +174,7 @@ public class CenterPanel extends JPanel
 			{
 				if(isPopulated(backgroundChoice) == true)
 				{
-					Object chosenBackground = determineBackgroundClass(backgroundChoice);
+					Object chosenBackground = determineBackground(backgroundChoice);
 					displayBondsDialogBox(chosenBackground);
 				}
 			}
@@ -188,7 +188,7 @@ public class CenterPanel extends JPanel
 			{
 				if(isPopulated(backgroundChoice) == true)
 				{
-					Object chosenBackground = determineBackgroundClass(backgroundChoice);
+					Object chosenBackground = determineBackground(backgroundChoice);
 					displayFlawsDialogBox(chosenBackground);
 				}
 			}
@@ -200,6 +200,7 @@ public class CenterPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				// Each type of entry field is added to an ArrayList that is iterated through.
 				ArrayList<JTextField> textFields = new ArrayList<JTextField>();
 				textFields.add(characterEntry);
 				textFields.add(playerEntry);
@@ -215,6 +216,7 @@ public class CenterPanel extends JPanel
 				intCombo.add(intelligenceNum);
 				intCombo.add(wisdomNum);
 				intCombo.add(charismaNum);
+				// Will display an error message if all unique fields are not filled in.
 				if(areAllPopulatedTextFields(textFields) == false || 
 						areAllPopulatedStrings(stringCombo) == false ||
 						areAllPopulatedInts(intCombo) == false)
@@ -226,81 +228,29 @@ public class CenterPanel extends JPanel
 				}
 				else
 				{
-					System.out.println("True");
-					Object character = createCharacter(characterEntry, raceChoice, strengthNum,
+					// Character's racial attributes are added to ArrayList.
+					ArrayList<String> character = createCharacter(characterEntry, raceChoice, strengthNum,
 							dexterityNum, constitutionNum, intelligenceNum,
 							wisdomNum, charismaNum);
-					if(raceChoice.getSelectedItem().equals("Dark Elf"))
+					for(String s : character)
 					{
-						DarkElf darkElfCharacter = (DarkElf) character;
+						System.out.println(s);
 					}
-					if(raceChoice.getSelectedItem().equals("Dragonborn"))
+					
+					// Each ability modifier is calculated.
+					int strengthMod = getAbilityModifier(Integer.parseInt(character.get(1)));
+					int dexterityMod = getAbilityModifier(Integer.parseInt(character.get(2)));
+					int constitutionMod = getAbilityModifier(Integer.parseInt(character.get(3)));
+					int intelligenceMod = getAbilityModifier(Integer.parseInt(character.get(4)));
+					int wisdomMod = getAbilityModifier(Integer.parseInt(character.get(5)));
+					int charismaMod = getAbilityModifier(Integer.parseInt(character.get(6)));
+					
+					int constitution = (Integer.parseInt(character.get(3)));
+					// Character's class features are added to ArrayList.
+					ArrayList<String> characterClass = determineClass(classChoice, constitution);
+					for(String s : characterClass)
 					{
-						Dragonborn dragonbornCharacter = (Dragonborn) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Dwarf"))
-					{
-						Dwarf dwarfCharacter = (Dwarf) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Elf"))
-					{
-						Elf elfCharacter = (Elf) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Forest Gnome"))
-					{
-						ForestGnome forestGnomeCharacter = (ForestGnome) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Gnome"))
-					{
-						Gnome gnomeCharacter = (Gnome) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Half Elf"))
-					{
-						HalfElf halfElfCharacter = (HalfElf) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Halfling"))
-					{
-						Halfling halflingCharacter = (Halfling) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Half Orc"))
-					{
-						HalfOrc halfOrcCharacter = (HalfOrc) character;
-					}
-					if(raceChoice.getSelectedItem().equals("High Elf"))
-					{
-						HighElf highElfCharacter = (HighElf) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Hill Dwarf"))
-					{
-						HillDwarf hillDwarfCharacter = (HillDwarf) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Human"))
-					{
-						Human humanCharacter = (Human) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Lightfoot"))
-					{
-						LightFoot lightfootCharacter = (LightFoot) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Mountain Dwarf"))
-					{
-						MountainDwarf mountainDwarfCharacter = (MountainDwarf) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Rock Gnome"))
-					{
-						RockGnome rockGnomeCharacter = (RockGnome) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Stout"))
-					{
-						Stout stoutCharacter = (Stout) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Tiefling"))
-					{
-						Tiefling tieflingCharacter = (Tiefling) character;
-					}
-					if(raceChoice.getSelectedItem().equals("Wood Elf"))
-					{
-						WoodElf woodElfCharacter = (WoodElf) character;
+						System.out.println(s);
 					}
 				}
 			}
@@ -429,7 +379,7 @@ public class CenterPanel extends JPanel
 	 * constitutionNum, intelligenceNum, wisdomNum, charismaNum
 	 * @return race
 	 */
-	public Object createCharacter(JTextField characterEntry, JComboBox<String> raceChoice,
+	public ArrayList<String> createCharacter(JTextField characterEntry, JComboBox<String> raceChoice,
 			JComboBox<Integer> strengthNum,
 			JComboBox<Integer> dexterityNum, JComboBox<Integer> constitutionNum,
 			JComboBox<Integer> intelligenceNum, JComboBox<Integer> wisdomNum,
@@ -442,67 +392,132 @@ public class CenterPanel extends JPanel
 		int intelligence = getAbilityScore(intelligenceNum);
 		int wisdom = getAbilityScore(wisdomNum);
 		int charisma = getAbilityScore(charismaNum);
-		Object race = null;
+		ArrayList<String> attributes = new ArrayList<String>();
 		String choice = (String)raceChoice.getSelectedItem();
 		switch(choice)
 		{
-		case "Dark Elf": race = new DarkElf(name, strength, dexterity, constitution,
+		case "Dark Elf": DarkElf darkElfRace = new DarkElf(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = darkElfRace.getAllAttributes();
 			break;
-		case "Dragonborn": race = new Dragonborn(name, strength, dexterity, constitution,
+		case "Dragonborn": Dragonborn dragonbornRace = new Dragonborn(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = dragonbornRace.getAllAttributes();
 			break;
-		case "Dwarf": race = new Dwarf(name, strength, dexterity, constitution,
+		case "Dwarf": Dwarf dwarfRace = new Dwarf(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = dwarfRace.getAllAttributes();
 			break;
-		case "Elf": race = new Elf(name, strength, dexterity, constitution,
+		case "Elf": Elf elfRace = new Elf(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = elfRace.getAllAttributes();
 			break;
-		case "Forest Gnome": race = new ForestGnome(name, strength, dexterity, constitution,
+		case "Forest Gnome": ForestGnome forestGnomeRace = new ForestGnome(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = forestGnomeRace.getAllAttributes();
 			break;
-		case "Gnome": race = new Gnome(name, strength, dexterity, constitution,
+		case "Gnome": Gnome gnomeRace = new Gnome(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = gnomeRace.getAllAttributes();
 			break;
-		case "Half Elf": race = new HalfElf(name, strength, dexterity, constitution,
+		case "Half Elf": HalfElf halfElfRace = new HalfElf(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = halfElfRace.getAllAttributes();
 			break;
-		case "Halfling": race = new Halfling(name, strength, dexterity, constitution,
+		case "Halfling": Halfling halflingRace = new Halfling(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = halflingRace.getAllAttributes();
 			break;
-		case "Half Orc": race = new HalfOrc(name, strength, dexterity, constitution,
+		case "Half Orc": HalfOrc halfOrcRace = new HalfOrc(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = halfOrcRace.getAllAttributes();
 			break;
-		case "High Elf": race = new HighElf(name, strength, dexterity, constitution,
+		case "High Elf": HighElf highElfRace = new HighElf(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = highElfRace.getAllAttributes();
 			break;
-		case "Hill Dwarf": race = new HillDwarf(name, strength, dexterity, constitution,
+		case "Hill Dwarf": HillDwarf hillDwarfRace = new HillDwarf(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = hillDwarfRace.getAllAttributes();
 			break;
-		case "Human": race = new Human(name, strength, dexterity, constitution,
+		case "Human": Human humanRace = new Human(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = humanRace.getAllAttributes();
 			break;
-		case "Lightfoot": race = new LightFoot(name, strength, dexterity, constitution,
+		case "Lightfoot": LightFoot lightFootRace = new LightFoot(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = lightFootRace.getAllAttributes();
 			break;
-		case "Mountain Dwarf": race = new MountainDwarf(name, strength, dexterity, constitution,
+		case "Mountain Dwarf": MountainDwarf mountainDwarfRace = new MountainDwarf(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = mountainDwarfRace.getAllAttributes();
 			break;
-		case "Rock Gnome": race = new RockGnome(name, strength, dexterity, constitution,
+		case "Rock Gnome": RockGnome rockGnomeRace = new RockGnome(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = rockGnomeRace.getAllAttributes();
 			break;
-		case "Stout": race = new Stout(name, strength, dexterity, constitution,
+		case "Stout": Stout stoutRace = new Stout(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = stoutRace.getAllAttributes();
 			break;
-		case "Tiefling": race = new Tiefling(name, strength, dexterity, constitution,
+		case "Tiefling": Tiefling tieflingRace = new Tiefling(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = tieflingRace.getAllAttributes();
 			break;
-		case "Wood Elf": race = new WoodElf(name, strength, dexterity, constitution,
+		case "Wood Elf": WoodElf woodElfRace = new WoodElf(name, strength, dexterity, constitution,
 				intelligence, wisdom, charisma);
+				attributes = woodElfRace.getAllAttributes();
 			break;
 		}
-		return race;
-	}	
+		return attributes;
+	}
+	
+	public ArrayList<String> determineClass(JComboBox<String> classChoice, 
+			int constitution)
+	{
+		String choice = (String)classChoice.getSelectedItem();
+		ArrayList<String> features = new ArrayList<String>();
+		switch(choice)
+		{
+		case "Barbarian": Barbarian barbarianClass = new Barbarian();
+				features = barbarianClass.getAllFeatures(constitution);
+			break;
+		case "Bard": Bard bardClass = new Bard();
+				features = bardClass.getAllFeatures(constitution);
+			break;
+		case "Cleric": Cleric clericClass = new Cleric();
+				features = clericClass.getAllFeatures(constitution);
+			break;
+		case "Druid": Druid druidClass = new Druid();
+				features = druidClass.getAllFeatures(constitution);
+			break;
+		case "Fighter": Fighter fighterClass = new Fighter();
+				features = fighterClass.getAllFeatures(constitution);
+			break;
+		case "Monk": Monk monkClass = new Monk();
+				features = monkClass.getAllFeatures(constitution);
+			break;
+		case "Paladin": Paladin paladinClass = new Paladin();
+				features = paladinClass.getAllFeatures(constitution);
+			break;
+		case "Ranger": Ranger rangerClass = new Ranger();
+				features = rangerClass.getAllFeatures(constitution);
+			break;
+		case "Rogue": Rogue rogueClass = new Rogue();
+				features = rogueClass.getAllFeatures(constitution);
+			break;
+		case "Sorcerer": Sorcerer sorcererClass = new Sorcerer();
+				features = sorcererClass.getAllFeatures(constitution);
+			break;
+		case "Warlock": Warlock warlockClass = new Warlock();
+				features = warlockClass.getAllFeatures(constitution);
+			break;
+		case "Wizard": Wizard wizardClass = new Wizard();
+				features = wizardClass.getAllFeatures(constitution);
+			break;
+		}
+		return features;
+	}
 	
 	/**
 	 * Determines the object associated with the ComboBox choice. This object
@@ -510,7 +525,7 @@ public class CenterPanel extends JPanel
 	 * @param comboChoice
 	 * @return background
 	 */
-	public Object determineBackgroundClass(JComboBox<String> comboChoice)
+	public Object determineBackground(JComboBox<String> comboChoice)
 	{
 		Object background = null;
 		String choice = (String)comboChoice.getSelectedItem();

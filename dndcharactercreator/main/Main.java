@@ -9,8 +9,13 @@ package dndcharactercreator.main;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+
+import dndcharactercreator.races.DarkElf;
+import dndcharactercreator.races.Dragonborn;
 
 public class Main
 {

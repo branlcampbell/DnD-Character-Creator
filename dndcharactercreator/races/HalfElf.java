@@ -4,6 +4,8 @@
  */
 package dndcharactercreator.races;
 
+import java.util.ArrayList;
+
 public class HalfElf extends NoRace
 {
 	private int speed = 30;
@@ -42,5 +44,24 @@ public class HalfElf extends NoRace
 	public String getSize()
 	{
 		return size;
+	}
+	
+	public ArrayList<String> getAllAttributes()
+	{
+		ArrayList<String> attributes = new ArrayList<String>();
+		attributes.add(getName());
+		attributes.add(String.valueOf(getStrength()));
+		attributes.add(String.valueOf(getDexterity()));
+		attributes.add(String.valueOf(getConstitution()));
+		attributes.add(String.valueOf(getIntelligence()));
+		attributes.add(String.valueOf(getWisdom()));
+		attributes.add(String.valueOf(getCharisma()));
+		attributes.add(String.valueOf(getSpeed()));
+		attributes.add(String.valueOf(getRacialBonus()));
+		attributes.add(String.valueOf(getSubRacialBonus()));
+		attributes.add(String.valueOf(getLanguages()));
+		attributes.add(String.valueOf(getSize()));
+		
+		return attributes;
 	}
 }

@@ -4,6 +4,9 @@
  */
 package dndcharactercreator.races;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Human extends NoRace
 {
 	private int speed = 30;
@@ -40,5 +43,24 @@ public class Human extends NoRace
 	public String getSize()
 	{
 		return size;
+	}
+	
+	public ArrayList<String> getAllAttributes()
+	{
+		ArrayList<String> attributes = new ArrayList<String>();
+		attributes.add(getName());
+		attributes.add(String.valueOf(getStrength()));
+		attributes.add(String.valueOf(getDexterity()));
+		attributes.add(String.valueOf(getConstitution()));
+		attributes.add(String.valueOf(getIntelligence()));
+		attributes.add(String.valueOf(getWisdom()));
+		attributes.add(String.valueOf(getCharisma()));
+		attributes.add(String.valueOf(getSpeed()));
+		attributes.add(Arrays.toString(getRacialBonus()));
+		attributes.add(Arrays.toString(getSubRacialBonus()));
+		attributes.add(Arrays.toString(getLanguages()));
+		attributes.add(String.valueOf(getSize()));
+		
+		return attributes;
 	}
 }
