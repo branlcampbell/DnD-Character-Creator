@@ -16,10 +16,10 @@ public class Human extends NoRace
 	public Human(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
 	{
-		/** +1 to all attributes bonus from racial modifier. */
+		// +1 to all attributes bonus from racial modifier.
 		super(name, strength + 1, dexterity + 1, constitution + 1, intelligence + 1, wisdom + 1, charisma + 1);
 	}
-
+	
 	public int getSpeed()
 	{
 		return speed;

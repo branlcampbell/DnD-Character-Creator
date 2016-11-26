@@ -13,7 +13,7 @@ public class DarkElf extends Elf
 	{
 		super(name, strength, dexterity, constitution, intelligence, wisdom, charisma);
 	}
-
+	
 	public String[] getSubRacialBonus()
 	{
 		return subRacialBonus;

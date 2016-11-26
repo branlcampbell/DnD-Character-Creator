@@ -10,6 +10,7 @@ package dndcharactercreator.races;
 
 public abstract class NoRace implements Racial
 {
+
 	private String name;
 	private int strength;
 	private int dexterity;
@@ -25,7 +26,7 @@ public abstract class NoRace implements Racial
 	
 	/**
 	 * @param name Name given to character
-	 * All following parameters are rolled by and input by the user.
+	 * All following parameters are rolled and input by the user.
 	 * @param strength
 	 * @param dexterity
 	 * @param constitution
@@ -45,6 +46,7 @@ public abstract class NoRace implements Racial
 		this.charisma = charisma;
 	}
 
+	
 	public String getName()
 	{
 		return name;

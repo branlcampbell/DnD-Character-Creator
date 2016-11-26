@@ -17,10 +17,10 @@ public class HalfOrc extends NoRace
 	public HalfOrc(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
 	{
-		/** +2 strength and +1 constitution bonus from racial modifier. */
+		// +2 strength and +1 constitution bonus from racial modifier.
 		super(name, strength + 2, dexterity, constitution + 1, intelligence, wisdom, charisma);
 	}
-
+	
 	public int getSpeed()
 	{
 		return speed;

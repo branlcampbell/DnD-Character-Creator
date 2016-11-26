@@ -17,10 +17,10 @@ public class Halfling extends NoRace
 	public Halfling(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
 	{
-		/** +2 dexterity bonus from racial modifier. */
+		// +2 dexterity bonus from racial modifier.
 		super(name, strength, dexterity + 2, constitution, intelligence, wisdom, charisma);
 	}
-
+	
 	public int getSpeed()
 	{
 		return speed;

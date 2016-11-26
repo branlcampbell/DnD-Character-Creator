@@ -1,6 +1,6 @@
 package dndcharactercreator.races;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface Racial 
 {	
@@ -80,5 +80,5 @@ public interface Racial
 	 * Returns all of the racial attributes in an ArrayList.
 	 * @return attributes
 	 */
-	public ArrayList<String> getAllAttributes();
+	public List<String> getAllAttributes();
 }

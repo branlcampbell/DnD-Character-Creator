@@ -9,7 +9,8 @@ import java.util.Arrays;
 
 public class Barbarian implements Class
 {
-	private String hitDice = "1d12";
+	private int numHitDie = 1;
+	private String hitDice = "d12";
 	private int proficiencyBonus = 2;
 	private String[] savingThrows = {"Strength", "Constitution"};
 	private String[] skills = {"Animal Handling", "Athletics", "Intimidation", "Nature",
@@ -24,6 +25,11 @@ public class Barbarian implements Class
 	public Barbarian()
 	{
 		
+	}
+	
+	public int getNumHitDie()
+	{
+		return numHitDie;
 	}
 
 	public String getHitDice()
@@ -88,7 +94,7 @@ public class Barbarian implements Class
 	public ArrayList<String> getAllFeatures(int constitution)
 	{
 		ArrayList<String> features = new ArrayList<String>();
-		
+		features.add(String.valueOf(getNumHitDie()));
 		features.add(getHitDice());
 		features.add(String.valueOf(getHitPoints(constitution)));
 		features.add(String.valueOf(getProficiencyBonus()));

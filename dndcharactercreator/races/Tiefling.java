@@ -17,10 +17,10 @@ public class Tiefling extends NoRace
 	public Tiefling(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
 	{
-		/** +2 charisma and +1 intelligence bonus from racial modifier. */
+		// +2 charisma and +1 intelligence bonus from racial modifier.
 		super(name, strength, dexterity, constitution, intelligence + 1, wisdom, charisma + 2);
 	}
-
+	
 	public int getSpeed()
 	{
 		return speed;

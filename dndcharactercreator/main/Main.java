@@ -9,13 +9,9 @@ package dndcharactercreator.main;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-
-import dndcharactercreator.races.DarkElf;
-import dndcharactercreator.races.Dragonborn;
 
 public class Main
 {
@@ -33,9 +29,7 @@ public class Main
 		// Places the frame in the center of the screen.
 		mainFrame.setLocation(dim.width/2-mainFrame.getSize().width/2, dim.height/2-mainFrame.getSize().height/2);
 		/*
-		 * TODO initiative bonus = dexterity bonus
 		 * TODO calculate saving throws (class specified. Ability bonus + Attribute Bonus)
-		 * TODO add formFill methods to auto fill character sheet PDF
 		 */
 	}
 }

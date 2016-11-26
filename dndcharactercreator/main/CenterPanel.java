@@ -3,6 +3,7 @@ package dndcharactercreator.main;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -237,7 +238,6 @@ public class CenterPanel extends JPanel
 					List<String> racialBonuses = convertString(character.get(8));
 					List<String> subRacialBonuses = convertString(character.get(9));
 					List<String> languages = convertString(character.get(10));
-					
 					// Each ability modifier is calculated.
 					int strengthMod = getAbilityModifier(Integer.parseInt(character.get(1)));
 					int dexterityMod = getAbilityModifier(Integer.parseInt(character.get(2)));
@@ -251,53 +251,46 @@ public class CenterPanel extends JPanel
 					
 					// Each ability modifier as well as perception is added to a list.
 					List<String> abilityModifiers = new ArrayList<String>();
-					abilityModifiers.add(Integer.toString(strengthMod));
-					abilityModifiers.add(Integer.toString(dexterityMod));
-					abilityModifiers.add(Integer.toString(constitutionMod));
-					abilityModifiers.add(Integer.toString(intelligenceMod));
-					abilityModifiers.add(Integer.toString(wisdomMod));
-					abilityModifiers.add(Integer.toString(charismaMod));
-					abilityModifiers.add(Integer.toString(perception));
+					abilityModifiers.add(String.valueOf(strengthMod));
+					abilityModifiers.add(String.valueOf(dexterityMod));
+					abilityModifiers.add(String.valueOf(constitutionMod));
+					abilityModifiers.add(String.valueOf(intelligenceMod));
+					abilityModifiers.add(String.valueOf(wisdomMod));
+					abilityModifiers.add(String.valueOf(charismaMod));
+					abilityModifiers.add(String.valueOf(perception));
 					
 					int constitution = (Integer.parseInt(character.get(3)));
+					
 					// Character's class features are added to ArrayList.
 					List<String> characterClass = determineClass(classChoice, constitution);
-					List<String> savingThrows = convertString(characterClass.get(3));
-					List<String> skill = convertString(characterClass.get(4));
-					List<String> features = convertString(characterClass.get(5));
-					List<String> proficiencies = convertString(characterClass.get(6));
-					List<String> guaranteedEquipment = convertString(characterClass.get(7));
-					for(String savingString : savingThrows)
+					//List<String> savingThrows = convertString(characterClass.get(3));
+					List<String> skills = convertString(characterClass.get(5));
+					List<String> features = convertString(characterClass.get(6));
+					List<String> proficiencies = convertString(characterClass.get(7));
+					List<String> guaranteedEquipment = convertString(characterClass.get(8));
+					List<String> miscCharacterInfo = new ArrayList<String>();
+					miscCharacterInfo.add((String) raceChoice.getSelectedItem());
+					miscCharacterInfo.add((String) alignmentChoice.getSelectedItem());
+					miscCharacterInfo.add((String) playerEntry.getText());
+					miscCharacterInfo.add((String) classChoice.getSelectedItem());
+					try 
 					{
-						switch(savingString)
-						{
-						case "Strength":
-							getProficientSavingThrow(strengthMod, Integer.parseInt(characterClass.get(2)));
-							break;
-						case "Dexterity":
-							getProficientSavingThrow(dexterityMod, Integer.parseInt(characterClass.get(2)));
-							break;
-						case "Constitution":
-							getProficientSavingThrow(constitutionMod, Integer.parseInt(characterClass.get(2)));
-							break;
-						case "Intelligence":
-							getProficientSavingThrow(intelligenceMod, Integer.parseInt(characterClass.get(2)));
-							break;
-						case "Wisdom":
-							getProficientSavingThrow(wisdomMod, Integer.parseInt(characterClass.get(2)));
-							break;
-						case "Charisma":
-							getProficientSavingThrow(charismaMod, Integer.parseInt(characterClass.get(2)));
-							break;
-						}
+						FillForm fill = new FillForm();
+						fill.fillAllFields(character, characterClass,
+								abilityModifiers, skills, features, proficiencies,
+								guaranteedEquipment, languages,
+								racialBonuses, subRacialBonuses, 
+								miscCharacterInfo);
+					} 
+					catch (IOException ex) 
+					{
+						ex.getMessage();
 					}
 				}
 			}
 		});
-		
-		/**
-		 * All fields will be cleared if the user selects yes on the option pane.
-		 */
+	
+		//All fields will be cleared if the user selects yes on the option pane.
 		JButton clearButton = new JButton("Clear Fields");
 		add(clearButton);
 		clearButton.addActionListener(new ActionListener()

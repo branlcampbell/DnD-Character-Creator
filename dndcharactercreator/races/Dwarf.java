@@ -19,7 +19,7 @@ public class Dwarf extends NoRace
 	public Dwarf(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
 	{
-		/** +2 constitution bonus from racial modifier. */
+		// +2 constitution bonus from racial modifier.
 		super(name, strength, dexterity, constitution + 2, intelligence, wisdom, charisma);
 	}
 	

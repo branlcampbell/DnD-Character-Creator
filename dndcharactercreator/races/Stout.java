@@ -11,10 +11,10 @@ public class Stout extends Halfling
 	public Stout(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
 	{
-		/** +1 intelligence bonus from racial modifier. */
+		// +1 intelligence bonus from racial modifier.
 		super(name, strength, dexterity, constitution, intelligence + 1, wisdom, charisma);
 	}
-
+	
 	public String[] getSubRacialBonus()
 	{
 		return subRacialBonus;

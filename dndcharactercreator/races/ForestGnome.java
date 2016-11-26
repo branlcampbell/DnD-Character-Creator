@@ -11,7 +11,7 @@ public class ForestGnome extends Gnome
 	public ForestGnome(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
 	{
-		/** +1 dexterity bonus from racial modifier. */
+		// +1 dexterity bonus from racial modifier.
 		super(name, strength, dexterity + 1, constitution, intelligence, wisdom, charisma);
 	}
 	

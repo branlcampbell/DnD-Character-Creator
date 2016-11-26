@@ -5,6 +5,12 @@ import java.util.ArrayList;
 public interface Class 
 {
 	/**
+	 * Returns the amount of hit die.
+	 * @return numHitDie
+	 */
+	int getNumHitDie();
+	
+	/**
 	 * Returns the hit dice amount.
 	 * @return hitDice
 	 */

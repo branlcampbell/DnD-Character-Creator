@@ -17,10 +17,10 @@ public class HalfElf extends NoRace
 	public HalfElf(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
 	{
-		/** +2 constitution bonus from racial modifier. */
+		// +2 constitution bonus from racial modifier.
 		super(name, strength, dexterity, constitution, intelligence, wisdom, charisma + 2);
 	}
-
+	
 	public int getSpeed()
 	{
 		return speed;
