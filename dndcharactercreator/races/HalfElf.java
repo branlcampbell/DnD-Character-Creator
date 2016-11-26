@@ -61,7 +61,6 @@ public class HalfElf extends NoRace
 		attributes.add(String.valueOf(getSubRacialBonus()));
 		attributes.add(String.valueOf(getLanguages()));
 		attributes.add(String.valueOf(getSize()));
-		
 		return attributes;
 	}
 }

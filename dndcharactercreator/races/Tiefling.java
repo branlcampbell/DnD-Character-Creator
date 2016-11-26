@@ -61,7 +61,6 @@ public class Tiefling extends NoRace
 		attributes.add(Arrays.toString(getSubRacialBonus()));
 		attributes.add(Arrays.toString(getLanguages()));
 		attributes.add(String.valueOf(getSize()));
-		
 		return attributes;
 	}
 }

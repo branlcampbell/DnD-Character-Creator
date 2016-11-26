@@ -4,6 +4,8 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JButton;
@@ -229,13 +231,12 @@ public class CenterPanel extends JPanel
 				else
 				{
 					// Character's racial attributes are added to ArrayList.
-					ArrayList<String> character = createCharacter(characterEntry, raceChoice, strengthNum,
+					List<String> character = createCharacter(characterEntry, raceChoice, strengthNum,
 							dexterityNum, constitutionNum, intelligenceNum,
 							wisdomNum, charismaNum);
-					for(String s : character)
-					{
-						System.out.println(s);
-					}
+					List<String> racialBonuses = convertString(character.get(8));
+					List<String> subRacialBonuses = convertString(character.get(9));
+					List<String> languages = convertString(character.get(10));
 					
 					// Each ability modifier is calculated.
 					int strengthMod = getAbilityModifier(Integer.parseInt(character.get(1)));
@@ -245,12 +246,50 @@ public class CenterPanel extends JPanel
 					int wisdomMod = getAbilityModifier(Integer.parseInt(character.get(5)));
 					int charismaMod = getAbilityModifier(Integer.parseInt(character.get(6)));
 					
+					// Perception is calculated.
+					int perception = Integer.parseInt(character.get(5)) + 10;
+					
+					// Each ability modifier as well as perception is added to a list.
+					List<String> abilityModifiers = new ArrayList<String>();
+					abilityModifiers.add(Integer.toString(strengthMod));
+					abilityModifiers.add(Integer.toString(dexterityMod));
+					abilityModifiers.add(Integer.toString(constitutionMod));
+					abilityModifiers.add(Integer.toString(intelligenceMod));
+					abilityModifiers.add(Integer.toString(wisdomMod));
+					abilityModifiers.add(Integer.toString(charismaMod));
+					abilityModifiers.add(Integer.toString(perception));
+					
 					int constitution = (Integer.parseInt(character.get(3)));
 					// Character's class features are added to ArrayList.
-					ArrayList<String> characterClass = determineClass(classChoice, constitution);
-					for(String s : characterClass)
+					List<String> characterClass = determineClass(classChoice, constitution);
+					List<String> savingThrows = convertString(characterClass.get(3));
+					List<String> skill = convertString(characterClass.get(4));
+					List<String> features = convertString(characterClass.get(5));
+					List<String> proficiencies = convertString(characterClass.get(6));
+					List<String> guaranteedEquipment = convertString(characterClass.get(7));
+					for(String savingString : savingThrows)
 					{
-						System.out.println(s);
+						switch(savingString)
+						{
+						case "Strength":
+							getProficientSavingThrow(strengthMod, Integer.parseInt(characterClass.get(2)));
+							break;
+						case "Dexterity":
+							getProficientSavingThrow(dexterityMod, Integer.parseInt(characterClass.get(2)));
+							break;
+						case "Constitution":
+							getProficientSavingThrow(constitutionMod, Integer.parseInt(characterClass.get(2)));
+							break;
+						case "Intelligence":
+							getProficientSavingThrow(intelligenceMod, Integer.parseInt(characterClass.get(2)));
+							break;
+						case "Wisdom":
+							getProficientSavingThrow(wisdomMod, Integer.parseInt(characterClass.get(2)));
+							break;
+						case "Charisma":
+							getProficientSavingThrow(charismaMod, Integer.parseInt(characterClass.get(2)));
+							break;
+						}
 					}
 				}
 			}
@@ -699,5 +738,28 @@ public class CenterPanel extends JPanel
 			modifier = -1;
 		}
 		return modifier;
+	}
+	
+	/**
+	 * Returns the saving throw numbers the class if prodicient in.
+	 * @param abilityNum
+	 * @param proficiencyBonus
+	 * @return
+	 */
+	public int getProficientSavingThrow(int abilityNum, int proficiencyBonus)
+	{
+		return abilityNum + proficiencyBonus;
+	}
+	
+	/**
+	 * Takes a string and places each comma separated word into a list.
+	 * @param string
+	 * @return
+	 */
+	public List<String> convertString(String string)
+	{
+		String noBrackets = string.substring(1, string.length() - 1);
+		List<String> list = Arrays.asList(noBrackets.split("\\s*,\\s*"));
+		return list;
 	}
 }

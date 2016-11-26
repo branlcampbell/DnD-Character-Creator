@@ -34,7 +34,6 @@ public class Main
 		mainFrame.setLocation(dim.width/2-mainFrame.getSize().width/2, dim.height/2-mainFrame.getSize().height/2);
 		/*
 		 * TODO initiative bonus = dexterity bonus
-		 * TODO perception = 10 + wisdom bonus
 		 * TODO calculate saving throws (class specified. Ability bonus + Attribute Bonus)
 		 * TODO add formFill methods to auto fill character sheet PDF
 		 */
