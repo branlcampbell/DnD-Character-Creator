@@ -60,7 +60,8 @@ public class FillForm
 	 * @throws IOException
 	 */
     public void fillAllFields(List<String> character, List<String> characterClass,
-    		List<String> modifiers, List<String> skills, List<String> features, List<String> proficiencies,
+    		List<String> background, List<String> modifiers, List<String> skills, 
+    		List<String> features, List<String> proficiencies,
     		List<String> guaranteedEquipment, List<String> languages,
     		List<String> racialBonuses, List<String> subRacialBonuses,
     		List<String> miscCharacterInfo) throws IOException
@@ -73,7 +74,12 @@ public class FillForm
     		acroForm.getField("PlayerName").setValue(miscCharacterInfo.get(2));
     		acroForm.getField("Race ").setValue(miscCharacterInfo.get(0));
     		acroForm.getField("Alignment").setValue(miscCharacterInfo.get(1));
-    		acroForm.getField("ClassLevel").setValue(miscCharacterInfo.get(3) + "1");
+    		acroForm.getField("ClassLevel").setValue(miscCharacterInfo.get(3) + " 1");
+    		acroForm.getField("Background").setValue(background.get(0));
+    		acroForm.getField("PersonalityTraits ").setValue(background.get(1));
+    		acroForm.getField("Ideals").setValue(background.get(2));
+    		acroForm.getField("Bonds").setValue(background.get(3));
+    		acroForm.getField("Flaws").setValue(background.get(4));
     		acroForm.getField("XP").setValue("0");
     		acroForm.getField("STR").setValue(character.get(1));
     		acroForm.getField("STRmod").setValue(modifiers.get(0));
@@ -99,7 +105,6 @@ public class FillForm
     		acroForm.getField("HD").setValue(characterClass.get(1));
     		String raceBonuses = concatStrings(concatList(racialBonuses), concatList(subRacialBonuses));
     		String raceAndFeatures = concatStrings(raceBonuses, concatList(features));
-
     		acroForm.getField("Features and Traits").setValue(raceAndFeatures);
 
     		// Save and close the filled out form.
@@ -138,7 +143,7 @@ public class FillForm
      */
     public String concatStrings(String firstString, String secondString)
     {
-    	if(secondString == null)
+    	if(secondString == "")
     	{
     		return firstString;
     	}

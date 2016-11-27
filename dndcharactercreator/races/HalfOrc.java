@@ -13,6 +13,7 @@ public class HalfOrc extends NoRace
 	private String size = "Medium";
 	private String[] languages = {"Common", "Orc"};
 	private String[] racialBonus = {"Darkvision", "Menacing", "Relentless Endurance", "Savage Attacks"};
+	private String[] subRacialBonus = {""};
 	
 	public HalfOrc(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
@@ -33,7 +34,7 @@ public class HalfOrc extends NoRace
 
 	public String[] getSubRacialBonus()
 	{
-		return null;
+		return subRacialBonus;
 	}
 	
 	public String[] getLanguages()

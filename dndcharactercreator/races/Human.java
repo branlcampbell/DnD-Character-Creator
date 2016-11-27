@@ -12,6 +12,7 @@ public class Human extends NoRace
 	private int speed = 30;
 	private String size = "Medium";
 	private String[] languages = {"Common", "Additional Language"};
+	private String[] subRacialBonus = {""};
 	
 	public Human(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
@@ -37,7 +38,7 @@ public class Human extends NoRace
 	
 	public String[] getSubRacialBonus()
 	{
-		return null;
+		return subRacialBonus;
 	}
 	
 	public String getSize()

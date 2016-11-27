@@ -13,6 +13,7 @@ public class Halfling extends NoRace
 	private String size = "Medium";
 	private String[] languages = {"Common", "Halfling"};
 	private String[] racialBonus = {"Lucky", "Brave", "Halfling Nimbleness"};
+	private String[] subRacialBonus = {""};
 	
 	public Halfling(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
@@ -33,7 +34,7 @@ public class Halfling extends NoRace
 
 	public String[] getSubRacialBonus()
 	{
-		return null;
+		return subRacialBonus;
 	}
 	
 	public String[] getLanguages()

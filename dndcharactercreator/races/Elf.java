@@ -14,6 +14,7 @@ public class Elf extends NoRace
 	private String[] languages = {"Common", "Elvish"};
 	private String[] racialBonus = {"Darkvision", "Keen Senses", "Fey Ancestry",
 			"Trance"};
+	private String[] subRacialBonus = {""};
 	
 	public Elf(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
@@ -34,7 +35,7 @@ public class Elf extends NoRace
 	
 	public String[] getSubRacialBonus()
 	{
-		return null;
+		return subRacialBonus;
 	}
 
 	public String[] getLanguages()

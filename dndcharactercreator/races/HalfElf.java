@@ -13,6 +13,7 @@ public class HalfElf extends NoRace
 	private String[] languages = {"Common", "Elvish", "Additional Language"};
 	private String[] racialBonus = {"Choose +1 for two ability scores", "Darkvision", "Fey Ancestry",
 			"Skill Versatility"};
+	private String[] subRacialBonus = {""};
 	
 	public HalfElf(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
@@ -33,7 +34,7 @@ public class HalfElf extends NoRace
 	
 	public String[] getSubRacialBonus()
 	{
-		return null;
+		return subRacialBonus;
 	}
 
 	public String[] getLanguages()

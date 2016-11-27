@@ -13,6 +13,7 @@ public class Tiefling extends NoRace
 	private String size = "Medium";
 	private String[] languages = {"Common", "Infernal"};
 	private String[] racialBonus = {"Darkvision", "Hellish Resistance", "Infernal Legacy"};
+	private String[] subRacialBonus = {""};
 	
 	public Tiefling(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
@@ -33,7 +34,7 @@ public class Tiefling extends NoRace
 	
 	public String[] getSubRacialBonus()
 	{
-		return null;
+		return subRacialBonus;
 	}
 	
 	public String[] getLanguages()

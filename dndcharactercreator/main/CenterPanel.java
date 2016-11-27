@@ -18,12 +18,13 @@ import javax.swing.JTextField;
 
 import dndcharactercreator.races.*;
 import dndcharactercreator.classes.*;
+import dndcharactercreator.classes.Class;
 import dndcharactercreator.backgrounds.*;
 
 public class CenterPanel extends JPanel
 {	
 	private static final long serialVersionUID = -3135316718219106468L;
-	GridLayout entryGrid = new GridLayout(15,2);
+	GridLayout entryGrid = new GridLayout(0,2);
 	private String[] race = {"Dragonborn", "Dwarf", "Hill Dwarf", "Mountain Dwarf", "Elf", "High Elf",
 			"Wood Elf", "Dark Elf", "Gnome", "Forest Gnome", "Rock Gnome", "Halfling", "Half Elf",
 			"Half Orc", "Lightfoot", "Stout", "Human", "Tiefling"};
@@ -34,6 +35,10 @@ public class CenterPanel extends JPanel
 	private String[] backgrounds = {"Acolyte", "Charlatan", "Criminal", "Entertainer",
 			"Folk Hero", "Guild Artisan", "Hermit", "Noble", "Outlander", "Sage",
 			"Sailor", "Soldier", "Urchin"};
+	private String personalityString = "";
+	private String idealsString = "";
+	private String bondsString = "";
+	private String flawsString = "";
 	
 	public CenterPanel()
 	{
@@ -78,6 +83,13 @@ public class CenterPanel extends JPanel
 		add(classChoice);
 		classChoice.setSelectedIndex(-1);
 		classChoice.setRenderer(dlcr);
+		classChoice.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent e)
+					{
+						// TODO action event for adding new ComboBox selections.
+					}
+				});
 		
 		JLabel backgroundLabel = new JLabel("Background");
 		add(backgroundLabel);
@@ -150,7 +162,8 @@ public class CenterPanel extends JPanel
 				if(isPopulated(backgroundChoice) == true)
 				{
 					Object chosenBackground = determineBackground(backgroundChoice);
-					displayPersonalityDialogBox(chosenBackground);
+					Object personality = displayPersonalityDialogBox(chosenBackground);
+					personalityString = personality.toString();
 				}
 			}
 		});
@@ -164,7 +177,8 @@ public class CenterPanel extends JPanel
 				if(isPopulated(backgroundChoice) == true)
 				{
 					Object chosenBackground = determineBackground(backgroundChoice);
-					displayIdealsDialogBox(chosenBackground);
+					Object ideals = displayIdealsDialogBox(chosenBackground);
+					idealsString = ideals.toString();
 				}
 			}
 		});
@@ -178,7 +192,8 @@ public class CenterPanel extends JPanel
 				if(isPopulated(backgroundChoice) == true)
 				{
 					Object chosenBackground = determineBackground(backgroundChoice);
-					displayBondsDialogBox(chosenBackground);
+					Object bonds = displayBondsDialogBox(chosenBackground);
+					bondsString = bonds.toString();
 				}
 			}
 		});
@@ -192,7 +207,8 @@ public class CenterPanel extends JPanel
 				if(isPopulated(backgroundChoice) == true)
 				{
 					Object chosenBackground = determineBackground(backgroundChoice);
-					displayFlawsDialogBox(chosenBackground);
+					Object flaws = displayFlawsDialogBox(chosenBackground);
+					flawsString = flaws.toString();
 				}
 			}
 		});
@@ -264,19 +280,27 @@ public class CenterPanel extends JPanel
 					// Character's class features are added to ArrayList.
 					List<String> characterClass = determineClass(classChoice, constitution);
 					//List<String> savingThrows = convertString(characterClass.get(3));
+					
+					List<String> background = new ArrayList<String>();
+					background.add(backgroundChoice.getSelectedItem().toString());
+					background.add(personalityString);
+					background.add(idealsString);
+					background.add(bondsString);
+					background.add(flawsString);
+					
 					List<String> skills = convertString(characterClass.get(5));
 					List<String> features = convertString(characterClass.get(6));
 					List<String> proficiencies = convertString(characterClass.get(7));
 					List<String> guaranteedEquipment = convertString(characterClass.get(8));
 					List<String> miscCharacterInfo = new ArrayList<String>();
-					miscCharacterInfo.add((String) raceChoice.getSelectedItem());
-					miscCharacterInfo.add((String) alignmentChoice.getSelectedItem());
-					miscCharacterInfo.add((String) playerEntry.getText());
-					miscCharacterInfo.add((String) classChoice.getSelectedItem());
+					miscCharacterInfo.add(raceChoice.getSelectedItem().toString());
+					miscCharacterInfo.add(alignmentChoice.getSelectedItem().toString());
+					miscCharacterInfo.add(playerEntry.getText());
+					miscCharacterInfo.add(classChoice.getSelectedItem().toString());
 					try 
 					{
 						FillForm fill = new FillForm();
-						fill.fillAllFields(character, characterClass,
+						fill.fillAllFields(character, characterClass, background,
 								abilityModifiers, skills, features, proficiencies,
 								guaranteedEquipment, languages,
 								racialBonuses, subRacialBonuses, 
@@ -504,6 +528,12 @@ public class CenterPanel extends JPanel
 		return attributes;
 	}
 	
+	/**
+	 * Method for returning all attributes associated with the selected class.
+	 * @param classChoice
+	 * @param constitution
+	 * @return features
+	 */
 	public ArrayList<String> determineClass(JComboBox<String> classChoice, 
 			int constitution)
 	{
@@ -549,6 +579,46 @@ public class CenterPanel extends JPanel
 			break;
 		}
 		return features;
+	}
+	
+	/**
+	 * Determines the object associated with the ComboBox choice. This object
+	 * is passed into the populateDialogBox method to be cast as type Class.
+	 * @param comboChoice
+	 * @return background
+	 */
+	public Object determineClass(JComboBox<String> comboChoice)
+	{
+		Object classChoice = null;
+		String choice = (String)comboChoice.getSelectedItem();
+		switch(choice)
+		{
+		case "Barbarian": classChoice = new Barbarian();
+			break;
+		case "Bard": classChoice = new Bard();
+			break;
+		case "Cleric": classChoice = new Cleric();
+			break;
+		case "Druid": classChoice = new Druid();
+			break;
+		case "Fighter": classChoice = new Fighter();
+			break;
+		case "Monk": classChoice = new Monk();
+			break;
+		case "Paladin": classChoice = new Paladin();
+			break;
+		case "Ranger": classChoice = new Ranger();
+			break;
+		case "Rogue": classChoice = new Rogue();
+			break;
+		case "Sorcerer": classChoice = new Sorcerer();
+			break;
+		case "Warlock": classChoice = new Warlock();
+			break;
+		case "Wizard": classChoice = new Wizard();
+			break;
+		}
+		return classChoice;
 	}
 	
 	/**
@@ -754,5 +824,31 @@ public class CenterPanel extends JPanel
 		String noBrackets = string.substring(1, string.length() - 1);
 		List<String> list = Arrays.asList(noBrackets.split("\\s*,\\s*"));
 		return list;
+	}
+	
+	// TODO add all class cases.
+	public void createAdditionalChoices(String comboChoice)
+	{
+		switch(comboChoice)
+		{
+		case "Barbarian":
+			// createRow for first and second equipment choice.
+			break;
+		case "Bard":
+			break;
+		}
+	}
+	
+	// TODO Make this method work.
+	public void createRow(Object comboBoxSelection, String numChoice)
+	{
+		Class classChoice = (Class) comboBoxSelection;
+		String[] equipment = classChoice.getFirstEquipmentChoice();
+		JLabel choice = new JLabel(numChoice + " Equipment Choice:");
+		add(choice);
+		choice.setHorizontalAlignment(JLabel.CENTER);
+		JComboBox<String> choices = new JComboBox<String>(equipment);
+		add(choices);
+		choices.setSelectedIndex(-1);
 	}
 }

@@ -13,6 +13,7 @@ public class Gnome extends NoRace
 	private String size = "Small";
 	private String[] languages = {"Common", "Gnomish"};
 	private String[] racialBonus = {"Darkvision", "Gnome Cunning"};
+	private String[] subRacialBonus = {""};
 	
 	public Gnome(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
@@ -33,7 +34,7 @@ public class Gnome extends NoRace
 	
 	public String[] getSubRacialBonus()
 	{
-		return null;
+		return subRacialBonus;
 	}
 
 	public String[] getLanguages()

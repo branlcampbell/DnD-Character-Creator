@@ -15,6 +15,7 @@ public class Dwarf extends NoRace
 	private String[] racialBonus = {"Speed is unaffected when wearing heavy armor",
 			"Darkvision", "Dwarven Resilience", "Dwarven Combat Training", "Tool Proficiency",
 			"Stonecunning"};
+	private String[] subRacialBonus = {""};
 	
 	public Dwarf(String name, int strength, int dexterity, int constitution,
 			int intelligence, int wisdom, int charisma) 
@@ -35,7 +36,7 @@ public class Dwarf extends NoRace
 	
 	public String[] getSubRacialBonus()
 	{
-		return null;
+		return subRacialBonus;
 	}
 	
 	public String[] getLanguages()
